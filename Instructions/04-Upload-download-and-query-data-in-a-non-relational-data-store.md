@@ -1,17 +1,16 @@
 ---
 lab:
-    title: 'ラボ 02: 非リレーショナルデータストアでデータのアップロード、ダウンロード、およびクエリを行う'
-    module: 'モジュール 03: Azure のリレーショナル データの詳細を理解する'
+  title: ラボ 02:リレーショナル以外のデータ ストアでのデータのアップロード、ダウンロード、およびクエリの実行
+  module: 'Module 03: Explore non-relational data in Azure'
+ms.openlocfilehash: 6787cb8209df227b97ad74a000bc5906740344d7
+ms.sourcegitcommit: 32d1de2c37267f8d3cedb0f0064b08be2cde5bb7
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 03/04/2022
+ms.locfileid: "139267723"
 ---
+## <a name="instructions"></a>Instructions
 
-## 手順
-サンプル シナリオで、次のデータ ストアを作成したとします。
+この演習では、Azure Cosmos DB について確認します。
 
-Contoso で製造される製品に関する情報が格納される Cosmos DB。
-製品の画像が格納される Azure Storage 内の BLOB コンテナー。
-製品ドキュメントが格納される、同じ Azure ストレージ アカウント内のファイル共有。
-この演習では、これらのデータ ストアにデータをアップロードします。Cosmos DB データベース内のデータに対してクエリを実行します。最後に、Azure Storage に格納されている画像とドキュメントをダウンロードして表示します。
-
-この演習は、Azure portal とコマンド ラインを使用して実行します。
-
-1.	Microsoft Learn の演習: https://aka.ms/dp900lab04-jpn に移動し、ブラウザーで次のユニットを完了させます。 
+1.  https://docs.microsoft.com/learn/modules/explore-non-relational-data-stores-azure/4-exercise-explore-cosmos-db にある Microsoft Learn の演習に移動し、ブラウザーでユニットを完了してください。 
