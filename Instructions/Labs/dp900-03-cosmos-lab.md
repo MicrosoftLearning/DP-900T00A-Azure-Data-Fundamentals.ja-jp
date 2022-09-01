@@ -2,13 +2,81 @@
 lab:
   title: Azure Cosmos DB を調べる
   module: Explore non-relational data in Azure
+ms.openlocfilehash: e152a348ea9f2e6392c530940abdae066c703d82
+ms.sourcegitcommit: 425a4886fdbcd872e00f8011729b8c724f9169e2
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 08/26/2022
+ms.locfileid: "147693494"
 ---
-## <a name="explore-azure-cosmos-db"></a>Azure Cosmos DB を調べる
+# <a name="explore-non-relational-data-in-azure-with-azure-cosmos-db"></a>Azure Cosmos DB を使用して Azure の非リレーショナル データを調べる
 
 この演習では、自分の Azure サブスクリプションで Azure Cosmos DB データベースをプロビジョニングし、それを使用して非リレーショナル データを格納するさまざまな方法を検討します。
 
-> <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: The exercise is part of a module on Microsoft Learn, and includes an option to use a <bpt id="p2">*</bpt>sandbox<ept id="p2">*</ept> Azure subscription. However, if you are completing this exercise as part of an instructor-led class, you should use the Azure subscription provided as part of the class instead of the sandbox.
+このラボは完了するまで、約 **15** 分かかります。
 
-以下のリンクを使用して、Microsoft Learn の演習を開きます。
+## <a name="before-you-start"></a>開始する前に
 
-**[Microsoft Learn に移動する](https://docs.microsoft.com/learn/modules/explore-non-relational-data-stores-azure/4-exercise-explore-cosmos-db#create-a-cosmos-db-account)**
+管理レベルのアクセス権を持つ [Azure サブスクリプション](https://azure.microsoft.com/free) が必要です。
+
+## <a name="create-a-cosmos-db-account"></a>Cosmos DB アカウントを作成する
+
+Cosmos DB を使うには、Azure サブスクリプションで Cosmos DB アカウントをプロビジョニングする必要があります。 この演習では、コア (SQL) API を使う Cosmos DB のアカウントをプロビジョニングします。
+
+1. Azure portal で、左上隅の **[+ リソースの作成]** を選び、*Azure Cosmos DB* を検索します。  結果で **[Azure Cosmos DB]** を選び、 **[作成]** を選びます。
+1. **[コア (SQL) - 推奨]** タイル内の **[作成]** を選択します。
+1. 次の詳細を入力して、**[確認および作成]** を選択します。
+    - **サブスクリプション**: サンドボックスを使用している場合は、[コンシェルジェ サブスクリプション] を選択します。 それ以外の場合は、ご自分の Azure サブスクリプションを選択します。
+    - **リソース グループ**: サンドボックスを使用している場合は、既存のリソース グループを選びます (この名前は、*learn-xxxx...* のようになります)。それ以外の場合は、任意の名前で新しいリソース グループを作成します。
+    - **アカウント名**: 一意の名前を入力します。
+    - **場所**: 任意の推奨される場所を選びます
+    - **容量モード**: プロビジョニングされたスループット
+    - **Apply Free-Tier Discount (Free レベル割引を適用する)**: 使用できる場合は [適用] を選びます。
+    - **合計アカウント スループットを制限する**: オフ
+1. 構成を確認したら、**[作成]** を選びます。
+1. デプロイが完了するまで待ちます。 次に、デプロイされたリソースに移動します。
+
+## <a name="create-a-sample-database"></a>サンプル データベースの作成
+
+              "この手順全体を通して、ポータルに表示されるヒントをすべて閉じます"。
+
+1. 新しい Cosmos DB アカウントのページの左側のペインで **[Data Explorer]** を選びます。
+1. **[Data Explorer]** ページで、**[クイック スタートの起動]** を選びます。
+1. **[新しいコンテナー]** タブで、サンプル データベースの事前に設定された値を確認して、**[OK]** を選びます。
+1. **SampleDB** データベースとその **SampleContainer** コンテナーが作成されるまで、画面の下部にあるパネルで状態を観察します (1 分ほどかかる場合があります)。
+
+## <a name="view-and-create-items"></a>項目の表示と作成
+
+1. [Data Explorer] ページで **SampleDB** データベースと **SampleContainer** コンテナーを展開し、**[項目]** を選んでコンテナー内の項目の一覧を表示します。 項目は住所を表し、それぞれに一意の ID と他のプロパティがあります。
+1. 一覧内の項目を選ぶと、項目データの JSON 表現が表示されます。
+1. ページの上部にある **[新しい項目]** を選び、新しい空白の項目を作成します。
+1. 新しい項目の JSON を以下のように変更し、**[保存]** を選びます。
+
+    ```json
+    {
+        "address": "1 Any St.",
+        "id": "123456789"
+    }
+    ```
+
+1. 新しい項目を保存すると、追加のメタデータ プロパティが自動的に追加されることに注意してください。
+
+## <a name="query-the-database"></a>データベースのクエリを実行する
+
+1. **[Data Explorer]** ページで、**[新しい SQL クエリ]** アイコンを選びます。
+1. SQL クエリ エディターで既定のクエリ (`SELECT * FROM c`) を確認し、`SELECT * FROM c` ボタンを使って実行します。
+1. すべての項目の完全な JSON 表現を含む結果を確認します。
+1. 次のように、クエリを変更します。
+
+    ```sql
+    SELECT c.id, c.address
+    FROM c
+    WHERE CONTAINS(c.address, "Any St.")
+    ```
+
+1. **[クエリの実行]** ボタンを使って、修正したクエリを実行し、結果を確認します。これには、**address** フィールドに "Any St." というテキストが含まれる項目の JSON エンティティが含まれます。
+1. SQL クエリ エディターを閉じ、変更内容を破棄します。
+
+    ここでは、Azure portal の Data Explorer インターフェイスを使って、Cosmos DB データベースで JSON エンティティを作成し、クエリを実行する方法について確認しました。 実際のシナリオでは、アプリケーション開発者は、数多くあるプログラミング言語固有のソフトウェア開発キット (SDK) のいずれかを使ってコア (SQL) API を呼び出し、データベース内のデータを操作することになります。
+
+> **ヒント**: Azure Cosmos DB の調査が完了した場合は、この演習で作成したリソース グループを削除してください。
