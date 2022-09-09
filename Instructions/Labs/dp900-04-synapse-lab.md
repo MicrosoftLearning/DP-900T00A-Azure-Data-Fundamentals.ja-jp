@@ -1,14 +1,9 @@
 ---
 lab:
-  title: Azure Synapse Analytics の詳細
-  module: Explore data analytics in Azure
-ms.openlocfilehash: c26e111a4e927c0192c8a45b6423146c24cf73aa
-ms.sourcegitcommit: 425a4886fdbcd872e00f8011729b8c724f9169e2
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 08/26/2022
-ms.locfileid: "147693542"
+  title: Azure Synapse Analytics を使用して Azure のデータ分析を調べる
+  module: Explore fundamentals of large-scale data warehousing
 ---
+
 # <a name="explore-data-analytics-in-azure-with-azure-synapse-analytics"></a>Azure Synapse Analytics を使用して Azure のデータ分析を調べる
 
 この演習では、自分の Azure サブスクリプションで Azure Synapse Analytics ワークスペースをプロビジョニングし、それを使用してデータの取り込みとクエリを実行します。
@@ -17,7 +12,7 @@ ms.locfileid: "147693542"
 
 ## <a name="before-you-start"></a>開始する前に
 
-管理レベルのアクセス権を持つ [Azure サブスクリプション](https://azure.microsoft.com/free) が必要です。
+管理レベルのアクセス権を持つ [Azure サブスクリプション](https://azure.microsoft.com/free)が必要です。
 
 ## <a name="provision-an-azure-synapse-analytics-workspace"></a>Azure Synapse Analytics ワークスペースをプロビジョニングする
 
@@ -25,14 +20,14 @@ Azure Synapse Analytics を使用するには、Azure サブスクリプショ�
 
 1. Azure portal ([https://portal.azure.com](https://portal.azure.com?azure-portal=true)) を開き、ご利用の Azure サブスクリプションに関連付けられている資格情報を使用してサインインします。
 
-    > **ヒント**: ご自分のサブスクリプションが含まれているディレクトリで作業していることを確認してください。右上のユーザー ID の下に表示されています。 そうでない場合は、ユーザー アイコンを選択してディレクトリを切り替えます。
+    > <bpt id="p1">**</bpt>Tip<ept id="p1">**</ept>:  Ensure you are working in the directory containing your subscription - indicated at the top right under your user ID. If not, select the user icon and switch directory.
 
 2. Azure portal の **[ホーム]** ページで、**[&#65291; リソースの作成]** アイコンを使用して、新しいリソースを作成します。
 3. *Azure Synapse Analytics* を検索し、次の設定を使用して、新しい **Azure Synapse Analytics** リソースを作成します。
     - **[サブスクリプション]**:"*ご自身の Azure サブスクリプション*"
         - **リソース グループ**: *適切な名前 (例: "synapse-rg") の新しいリソース グループを作成します*。
         - **管理対象リソース グループ**: *適切な名前 (例: "synapse") を入力します*。
-    - **ワークスペース名**: *一意のワークスペース名 (例: "synapse-ws-<ご自分の名前>") を入力します*。
+    - **ワークスペース名**: "*一意のワークスペース名 (例: "synapse-ws-<your_name>") を入力します*"。
     - **リージョン**: *次のいずれかのリージョンを選択します*:
         - オーストラリア東部
         - 米国中部
@@ -48,7 +43,7 @@ Azure Synapse Analytics を使用するには、Azure サブスクリプショ�
         - **アカウント名**: *一意の名前 (例: "datalake<your_name>") の新しいアカウントを作成します*。
         - **アカウント名**: *一意の名前 (例: "fs<your_name>") の新しいファイル システムを作成します*。
 
-    > **注**: Synapse Analytics ワークスペースには、Azure サブスクリプションに 2 つのリソース グループが必要です。1 つは明示的に作成したリソース用で、もう 1 つはサービスによって使用される管理対象リソース用です。 また、データ、スクリプト、その他のアーティファクトを格納するための Data Lake ストレージ アカウントも必要です。
+    > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: A Synapse Analytics workspace requires two resource groups in your Azure subscription; one for resources you explicitly create, and another for managed resources used by the service. It also requires a Data Lake storage account in which to store data, scripts, and other artifacts.
 
 4. これらの詳細を入力したら、**[確認と作成]** を選択し、**[作成]** を選択して、ワークスペースを作成します。
 5. ワークスペースが作成されるまで待ちます。これには 5 分程度かかる場合があります。
@@ -60,13 +55,13 @@ Azure Synapse Analytics を使用するには、Azure サブスクリプショ�
 
 ## <a name="ingest-data"></a>データの取り込み
 
-Azure Synapse Analytics を使用して実行できる主なタスクの 1 つは、さまざまなソースから分析用にデータをワークスペースに転送 (必要に応じて変換) する *パイプライン* を定義することです。
+Azure Synapse Analytics を使用して実行できる主なタスクの 1 つは、さまざまなソースから分析用にデータをワークスペースに転送 (必要に応じて変換) する*パイプライン*を定義することです。
 
 1. Synapse Studio の **[ホーム]** ページで、**[取り込み]** を選択し、**[組み込みコピー タスク]** を選択して、**[データ コピー ツール]** ツールを開きます。
 2. データ コピー ツールの **[プロパティ]** ステップで、**[組み込みコピー タスク]** と **[1 回実行する]** が選択されていることを確認し、**[次へ >]** をクリックします。
 3. **[ソース]** ステップの **[データセット]** サブステップで、次の設定を選択します。
     - **[ソースの種類]**: すべて
-    - **[接続]**: 新しい接続を作成し、表示される **[リンクされたサービス]** ペインの **[ファイル]** タブで **[HTTP]** を選びます。続けて、次の設定を使ってデータ ファイルへの接続を作成します。
+    - **[接続]**: 新しい接続を作成し、表示される **[リンクされたサービス]** ペインの **[ファイル]** タブで **[HTTP]** を選びます。続けて、次の設定を使ってデータ ファイルへの接続を作成します。**
         - **名前**: AdventureWorks 製品
         - **説明**: HTTP 経由の製品一覧
         - **統合ランタイム経由で接続する**: AutoResolveIntegrationRuntime
@@ -77,7 +72,7 @@ Azure Synapse Analytics を使用して実行できる主なタスクの 1 つ�
     - **相対 URL**: *空白のまま*
     - **要求メソッド**:GET
     - **追加ヘッダー** :*空白のまま*
-    - **バイナリ コピー**: 選択 <u>解除</u>
+    - **バイナリ コピー**: 選択<u>解除</u>
     - **要求タイムアウト**: *空白のまま*
     - **最大同時接続数**: *空白のまま*
 5. **[ソース]** ステップの **[構成]** サブステップで、**[データのプレビュー]** を選択して、パイプラインに取り込む製品データのプレビューを表示し、プレビューを閉じます。
@@ -89,14 +84,14 @@ Azure Synapse Analytics を使用して実行できる主なタスクの 1 つ�
     - **圧縮の種類**: なし
 7. **[ターゲット]** ステップの **[データセット]** サブステップで、次の設定を選択します。
     - **[ターゲットの種類]**: Azure Data Lake Storage Gen 2
-    - **[接続]**: データ レイク ストアへの既存の接続を選びます (これは、ワークスペースを作成したときに自動的に作成されました)。
-8. 接続を選んだら、 **[ターゲット/データセット]** ステップで、次の設定が選ばれていることを確認し、 **[次へ]** を選びます。
+    - **[接続]**: データ レイク ストアへの既存の接続を選びます (これは、ワークスペースを作成したときに自動的に作成されました)。**
+8. 接続を選択したら、 **[ターゲット/データセット]** ステップで、次の設定が選択されていることを確認し、 **[次へ]** を選択します。
     - **フォルダーのパス** :*ファイル システム フォルダーを参照します。*
     - **ファイル名**: products.csv
     - **コピー動作**: なし
     - **最大同時接続数**: *空白のまま*
     - **ブロック サイズ (MB)**: *空白のまま*
-9. **[ターゲット]** ステップの **[構成]** サブステップで、次のプロパティが選択されていることを確認します。 次に、**[次へ]** を選択します。
+9. On the <bpt id="p1">**</bpt>Target<ept id="p1">**</ept> step, in the <bpt id="p2">**</bpt>Configuration<ept id="p2">**</ept> substep, ensure that the following properties are selected. Then select <bpt id="p1">**</bpt>Next &gt;<ept id="p1">**</ept>:
     - **ファイル形式**: DelimitedText
     - **列区切り記号**: コンマ (,)
     - **行区切り記号**: 改行 (\n)
@@ -108,18 +103,18 @@ Azure Synapse Analytics を使用して実行できる主なタスクの 1 つ�
     - **タスク名**: 製品のコピー
     - **タスクの説明**: 製品データのコピー
     - **フォールト トレランス**: *空白のまま*
-    - **ログを有効にする**: 選択 <u>解除</u>
-    - **ステージングを有効にする**: 選択 <u>解除</u>
+    - **ログを有効にする**: 選択<u>解除</u>
+    - **ステージングを有効にする**: 選択<u>解除</u>
 11. **[確認と完了]** ステップの **[確認]** サブステップで、概要を読み、**[次へ >]** をクリックします。
 12. **[デプロイ]** ステップで、パイプラインがデプロイされるまで待ち、**[完了]** をクリックします。
 13. Synapse Studio で、 **[監視]** ページを選択し、 **[パイプラインの実行]** タブで、 **[製品のコピー]** パイプラインが完了して **[成功]** の状態になるまで待ちます ([パイプラインの実行] ページの **[&#8635; 最新の情報に更新]** ボタンを使用して状態を更新できます)。
-14. **[データ]** ページで、**[リンク]** タブを選択し、Synapse ワークスペースのファイル ストレージが表示されるまで **[Azure Data Lake Storage Gen 2]** 階層を展開します。 次に示すように、ファイル ストレージを選択して、**products.csv** という名前のファイルがこの場所にコピーされていることを確認します。
+14. On the <bpt id="p1">**</bpt>Data<ept id="p1">**</ept> page, select the <bpt id="p2">**</bpt>Linked<ept id="p2">**</ept> tab and expand the <bpt id="p3">**</bpt>Azure Data Lake Storage Gen 2<ept id="p3">**</ept> hierarchy until you see the file storage for your Synapse workspace. Then select the file storage to verify that a file named <bpt id="p1">**</bpt>products.csv<ept id="p1">**</ept> has been copied to this location, as shown here:
 
     ![Synapse ワークスペースのファイル ストレージで Azure Data Lake Storage Gen 2 階層が展開された Synapse Studio を示す画像](images/synapse-storage.png)
 
 ## <a name="use-a-sql-pool-to-analyze-data"></a>SQL プールを使用してデータを分析する
 
-ワークスペースにデータを取り込んだので、Synapse Analytics を使用してクエリと分析を行うことができます。 データのクエリを実行する最も一般的な方法の 1 つは SQL を使用することです。Synapse Analytics では、*SQL プール* を使用して SQL コードを実行できます。
+Now that you've ingested some data into your workspace, you can use Synapse Analytics to query and analyze it. One of the most common ways to query data is to use SQL, and in Synapse Analytics you can use a <bpt id="p1">*</bpt>SQL pool<ept id="p1">*</ept> to run SQL code.
 
 1. Synapse Studio で、Synapse ワークスペースのファイル ストレージ の **products.csv** ファイルを右クリックし、**[新しい SQL スクリプト]** をポイントして、**[上位 100 行を選択する]** を選択します。
 2. **[SQL スクリプト 1]** ペインが開いたら、生成された SQL コードを確認します。これは次のようになります。
@@ -148,7 +143,7 @@ Azure Synapse Analytics を使用して実行できる主なタスクの 1 つ�
     | 772 | Mountain-100 Silver, 42 | マウンテン バイク | 3399.9900 |
     | ... | ... | ... | ... |
 
-5. 結果は、C1、C2、C3、C4 の名前の 4 つの列で構成されています。結果の最初の行には、データ フィールドの名前が含まれています。 この問題を解決するには、次に示すように OPENROWSET 関数に HEADER_ROW = TRUE パラメーターを追加し (*datalakexx* と *fsxx* をデータ レイク ストレージ アカウントとファイル システムの名前に置き換える)、クエリを再実行します。
+5. Note the results consist of four columns named C1, C2, C3, and C4; and that the first row in the results contains the names of the data fields. To fix this problem, add a HEADER_ROW = TRUE parameters to the OPENROWSET function as shown here (replacing <bpt id="p1">*</bpt>datalakexx<ept id="p1">*</ept> and <bpt id="p2">*</bpt>fsxx<ept id="p2">*</ept> with the names of your data lake storage account and file system), and then rerun the query:
 
     ```SQL
     SELECT
@@ -193,13 +188,13 @@ Azure Synapse Analytics を使用して実行できる主なタスクの 1 つ�
     | バイク ラック | 1 |
     | ... | ... |
 
-8. **[SQL スクリプト 1]** の **[プロパティ]** ペインで、**[名前]** を "**カテゴリ別の製品数**" に変更します。 次に、ツールバーの **[公開]** を選択して、スクリプトを保存します。
+8. In the <bpt id="p1">**</bpt>Properties<ept id="p1">**</ept> pane for <bpt id="p2">**</bpt>SQL Script 1<ept id="p2">**</ept>, change the <bpt id="p3">**</bpt>Name<ept id="p3">**</ept> to <bpt id="p4">**</bpt>Count Products by Category<ept id="p4">**</ept>. Then in the toolbar, select <bpt id="p1">**</bpt>Publish<ept id="p1">**</ept> to save the script.
 
 9. **[カテゴリ別の製品数]** スクリプト ペインを閉じます。
 
 10. Synapse Studio で、**[開発]** ページを選択し、公開した **[カテゴリ別の製品数]** SQL スクリプトが保存されていることを確認します。
 
-11. **[カテゴリ別の製品数]** SQL スクリプトを選択し、もう一度開きます。 次に、スクリプトが **[組み込み]** SQL プールに接続されていることを確認し、それを実行して製品数を取得します。
+11. Select the <bpt id="p1">**</bpt>Count Products by Category<ept id="p1">**</ept> SQL script to reopen it. Then ensure that the script is connected to the <bpt id="p1">**</bpt>Built-in<ept id="p1">**</ept> SQL pool and run it to retrieve the product counts.
 
 12. **[結果]** ペインで、**[グラフ]** ビューを選択し、グラフの次の設定を選択します。
     - **グラフの種類**: 列
@@ -217,7 +212,7 @@ Azure Synapse Analytics を使用して実行できる主なタスクの 1 つ�
 
 ## <a name="use-a-spark-pool-to-analyze-data"></a>Spark プールを使用してデータを分析する
 
-SQL は構造化データセットでクエリを実行するための共通言語ですが、多くのデータ アナリストは、Python など、分析用のデータの探索と準備に役立つ言語を見つけています。 Azure Synapse Analytics では、*Spark プール* で Python (およびその他の) コードを実行できます。これは Apache Spark に基づく分散データ処理エンジンを使用します。
+While SQL is a common language for querying structured datasets, many data analysts find languages like Python useful to explore and prepare data for analysis. In Azure Synapse Analytics, you can run Python (and other) code in a <bpt id="p1">*</bpt>Spark pool<ept id="p1">*</ept>; which uses a distributed data processing engine based on Apache Spark.
 
 1. Synapse Studio で、**[管理]** ページを選択します。
 2. **[Apache Spark プール]** タブを選択し、**[&#65291; 新規]** アイコンを使用して、次の設定で新しい Spark プールを作成します。
@@ -227,7 +222,7 @@ SQL は構造化データセットでクエリを実行するための共通言�
     - **自動スケール**: 有効
     - **ノードの数**: 3----3
 3. Spark プールを確認して作成し、デプロイされるのを待ちます (数分かかる場合があります)。
-4. Spark プールがデプロイされたら、Synapse Studio の **[データ]** ページで、Synapse ワークスペースのファイル システムを参照します。 次に、**products.csv** を右クリックし、**[新しいノートブック]** をポイントして、**[データ フレームに読み込む]** を選択します。
+4. When the Spark pool has been deployed, in Synapse Studio, on the <bpt id="p1">**</bpt>Data<ept id="p1">**</ept> page, browse to the file system for your Synapse workspace. Then right-click <bpt id="p1">**</bpt>products.csv<ept id="p1">**</ept>, point to <bpt id="p2">**</bpt>New notebook<ept id="p2">**</ept>, and select <bpt id="p3">**</bpt>Load to DataFrame<ept id="p3">**</ept>.
 5. **[ノートブック 1]** ペインが表示されたら、**[アタッチ先]** ボックスの一覧で、以前に作成した **spark** Spark プールを選択し、**[言語]** が **[PySpark (Python)]** に設定されていることを確認します。
 6. ノートブックの最初の (および唯一の) セルのコードを確認します。次のようになります。
 
@@ -240,7 +235,7 @@ SQL は構造化データセットでクエリを実行するための共通言�
     display(df.limit(10))
     ```
 
-7.  コード セルの左側にある **[&#9655; 実行]** アイコンを使用して実行し、結果が表示されるまで待ちます。 ノートブックで初めてセルを実行すると、Spark プールが開始されます。結果が返されるまでに 1 分ほどかかることがあります。
+7.                  **ヒント**: ご自分のサブスクリプションが含まれているディレクトリで作業していることを確認してください。右上のユーザー ID の下に表示されています。
 
     > **注**: Python カーネルがまだ使用できないことが理由でエラーが発生した場合は、もう一度セルを実行します。
 
@@ -290,7 +285,7 @@ SQL は構造化データセットでクエリを実行するための共通言�
     | ホイール | 14 |
     | ... | ... |
 
-14. セルの結果出力で、**[グラフ]** ビューを選択します。 結果のグラフは次のようになります。
+14. 表示されない場合は、ユーザー アイコンを選択してディレクトリを切り替えてください。
 
     ![カテゴリ数グラフ ビューを示す画像](images/bar-chart.png)
 

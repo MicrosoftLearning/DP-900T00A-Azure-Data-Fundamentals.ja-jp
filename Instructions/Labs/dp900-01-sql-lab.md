@@ -2,14 +2,9 @@
 lab:
   title: Azure SQL Database について調べる
   module: Explore relational data in Azure
-ms.openlocfilehash: b97bef7424277c98e474d40fe5886840629fa77f
-ms.sourcegitcommit: 425a4886fdbcd872e00f8011729b8c724f9169e2
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 08/26/2022
-ms.locfileid: "147693434"
 ---
-# <a name="provision-azure-relational-database-services-with-azure-sql-database"></a>Azure SQL Database を使用して Azure リレーショナル データベース サービスをプロビジョニングする
+
+# <a name="explore-azure-sql-database"></a>Azure SQL Database について調べる
 
 この演習では、自分の Azure サブスクリプションで Azure SQL Database リソースをプロビジョニングし、SQL を使用してリレーショナル データベース内のテーブルに対してクエリを実行します。
 
@@ -17,26 +12,26 @@ ms.locfileid: "147693434"
 
 ## <a name="before-you-start"></a>開始する前に
 
-管理レベルのアクセス権を持つ [Azure サブスクリプション](https://azure.microsoft.com/free) が必要です。
+管理レベルのアクセス権を持つ [Azure サブスクリプション](https://azure.microsoft.com/free)が必要です。
 
 ## <a name="provision-an-azure-sql-database-resource"></a>Azure SQL Database リソースをプロビジョニングする
 
-1. [Azure portal](https://portal.azure.com?azure-portal=true) で、左上隅にある **[&#65291; リソースの作成]** を選択し、*Azure SQL* を検索します。 次に、表示される **[Azure SQL]** ページで、**[作成]** を選択します。
+1. In the <bpt id="p1">[</bpt>Azure portal<ept id="p1">](https://portal.azure.com?azure-portal=true)</ept>, select <bpt id="p2">**</bpt>&amp;#65291; Create a resource<ept id="p2">**</ept> from the upper left-hand corner and search for <bpt id="p3">*</bpt>Azure SQL<ept id="p3">*</ept>. Then in the resulting <bpt id="p1">**</bpt>Azure SQL<ept id="p1">**</ept> page, select <bpt id="p2">**</bpt>Create<ept id="p2">**</ept>.
 
 1. 使用可能な Azure SQL のオプションを確認し、**[SQL データベース]** タイルで **[単一データベース]** が選択されていることを確認して、**[作成]** を選択します。
 
-    ![Azure SQL のページが表示された Azure portal のスクリーンショット](images//azure-sql-portal.png)
+    ![[Azure SQL] ページが表示された Azure portal のスクリーンショット。](images//azure-sql-portal.png)
 
 1. **[SQL データベースの作成]** ページで、次の値を入力します。
     - **サブスクリプション**:Azure サブスクリプションを選択します。
     - **リソース グループ**: ご自分で選択した名前を持つ新しいリソース グループを作成します。
     - **データベース名**: *AdventureWorks*
-    - **サーバー**: **[新規作成]** を選択し、使用可能な任意の場所に一意の名前を持つ新しいサーバーを作成します。 **SQL 認証** を使用し、サーバー管理者ログインとしてご自分の名前を指定して、適切な複雑なパスワードを指定します (パスワードを覚えておいてください。後で必要になります)。
+    - <bpt id="p1">**</bpt>Server<ept id="p1">**</ept>:  Select <bpt id="p2">**</bpt>Create new<ept id="p2">**</ept> and create a new server with a unique name in any available location. Use <bpt id="p1">**</bpt>SQL authentication<ept id="p1">**</ept> and specify your name as the server admin login and a suitably complex password (remember the password - you'll need it later!)
     - **SQL エラスティック プールを使用しますか?**: *いいえ*
     - **コンピューティングとストレージ**: 変更しません
-    - **バックアップ ストレージの冗長性**: "ローカル冗長バックアップ ストレージ"
+    - **バックアップ ストレージの冗長性**: "ローカル冗長バックアップ ストレージ"**
 
-1. **[SQL Database の作成]** ページで、 **[次へ: ネットワーク]** を選択し、 **[ネットワーク]** ページの **[ネットワーク接続]** セクションで、 **[パブリック エンドポイント]** を選択します。 **[ファイアウォール規則]** セクションの両方のオプションに対して **[はい]** を選択すると、Azure サービスと現在のクライアント IP アドレスからデータベース サーバーへのアクセスが許可されます。
+1. On the <bpt id="p1">**</bpt>Create SQL Database<ept id="p1">**</ept> page, select <bpt id="p2">**</bpt>Next :Networking &gt;<ept id="p2">**</ept>, and on the <bpt id="p3">**</bpt>Networking<ept id="p3">**</ept> page, in the <bpt id="p4">**</bpt>Network connectivity<ept id="p4">**</ept> section, select <bpt id="p5">**</bpt>Public endpoint<ept id="p5">**</ept>. Then select <bpt id="p1">**</bpt>Yes<ept id="p1">**</ept> for both options in the <bpt id="p2">**</bpt>Firewall rules<ept id="p2">**</ept> section to allow access to your database server from Azure services and your current client IP address.
 
 1. **[次へ: セキュリティ]** を選択し、 **[Microsoft Defender for SQL を有効にする]** オプションを **[今はしない]** に設定します。
 
@@ -44,17 +39,17 @@ ms.locfileid: "147693434"
 
 1. **[確認と作成]** を選択し、**[作成]** を選択して、Azure SQL データベースを作成します。
 
-1. デプロイが完了するまで待ちます。 その後、デプロイされたリソースにアクセスすると、次のように表示されます。
+1. Wait for deployment to complete. Then go to the resource that was deployed, which should look like this:
 
-    ![SQL Database ページが表示されている Azure portal のスクリーンショット。](images//sql-database-portal.png)
+    ![[SQL Database] ページが表示されている Azure portal のスクリーンショット。](images//sql-database-portal.png)
 
 1. ページの左側のペインで、**[クエリ エディター (プレビュー)]** を選択し、サーバー用に指定した管理者のログインとパスワードを使用してサインインします。
     
-                  "クライアント IP アドレスが許可されていないことを示すエラー メッセージが表示された場合は、メッセージの最後にある **[Allowlist IP ...] (許可リスト IP...)** リンクを選択してアクセスを許可し、もう一度サインインします (以前にご自身のコンピューターのクライアント IP アドレスをファイアウォール規則に追加していますが、ネットワーク構成によっては、クエリ エディターが異なるアドレスから接続されることがあります)。"
+                  "クライアント IP アドレスが許可されていないことを示すエラー メッセージが表示された場合は、メッセージの最後にある **[Allowlist IP ...] (許可リスト IP...)** リンクを選択してアクセスを許可し、もう一度サインインします (以前にご自身のコンピューターのクライアント IP アドレスをファイアウォール規則に追加していますが、ネットワーク構成によっては、クエリ エディターが異なるアドレスから接続されることがあります)。"**
     
     クエリ エディターは次のようになります。
     
-    ![概要が表示されている Azure portal のスクリーンショット。](images//query-editor.png)
+    ![クエリ エディターが表示されている Azure portal のスクリーンショット。](images//query-editor.png)
 
 1. **Tables** フォルダーを展開し、データベース内のテーブルを表示します。
 
