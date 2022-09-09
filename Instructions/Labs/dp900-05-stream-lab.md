@@ -1,15 +1,10 @@
 ---
 lab:
   title: Azure Stream Analytics を調べる
-  module: Explore data analytics in Azure
-ms.openlocfilehash: 223e78229f73e4b0bf0978e46a53455d5a031573
-ms.sourcegitcommit: 425a4886fdbcd872e00f8011729b8c724f9169e2
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 08/26/2022
-ms.locfileid: "147693506"
+  module: Explore fundamentals of real-time analytics
 ---
-# <a name="explore-data-analytics-in-azure-with-azure-stream-analytics"></a>Azure Stream Analytics を使用して Azure のデータ分析を調べる
+
+# <a name="explore-azure-stream-analytics"></a>Azure Stream Analytics を調べる
 
 この演習では、Azure サブスクリプションに Azure Stream Analytics ジョブをプロビジョニングし、それを使用してリアルタイム データのストリームを処理します。
 
@@ -17,13 +12,13 @@ ms.locfileid: "147693506"
 
 ## <a name="before-you-start"></a>開始する前に
 
-管理レベルのアクセス権を持つ [Azure サブスクリプション](https://azure.microsoft.com/free) が必要です。
+管理レベルのアクセス権を持つ [Azure サブスクリプション](https://azure.microsoft.com/free)が必要です。
 
 ## <a name="create-azure-resources"></a>Azure リソースを作成する
 
 1. [Azure portal](https://portal.azure.com) でご自分の Azure サブスクリプション資格情報を使用して、Azure サブスクリプションにサインインします。
 
-1. ページ上部の検索バーの右側にある **[\>_]** ボタンを使用して、Azure portal で新しい Cloud Shell を作成し、メッセージが表示されたら **_Bash_** 環境を選択してストレージを作成します。 次に示すように、Azure portal の下部にあるペインに、Cloud Shell のコマンド ライン インターフェイスが表示されます。
+1. Use the <bpt id="p1">**</bpt>[<ph id="ph1">\&gt;</ph>_]<ept id="p1">**</ept> button to the right of the search bar at the top of the page to create a new Cloud Shell in the Azure portal, selecting a <bpt id="p2">***</bpt>Bash<ept id="p2">***</ept> environment and creating storage if prompted. The cloud shell provides a command line interface in a pane at the bottom of the Azure portal, as shown here:
 
     ![Azure portal と Cloud Shell のペイン](./images/cloud-shell.png)
 
@@ -47,27 +42,27 @@ ms.locfileid: "147693506"
 
     実行されたスクリプトによって次のアクションが実行されるのを待ちます。
 
-    1. リソースの作成に必要な Azure CLI 拡張機能がインストールされます ("試験段階の拡張機能に関する警告は無視してかまいません")。
+    1. リソースの作成に必要な Azure CLI 拡張機能がインストールされます ("試験段階の拡張機能に関する警告は無視してかまいません")。**
     1. この演習用に提供されている Azure リソース グループを見つけます。
     1. シミュレートされたデバイスからデータのストリームを受け取るために使用される *Azure IoT Hub* リソースが作成されます。
-    1. 処理されたデータの格納に使用される "Azure ストレージ アカウント" が作成されます。
-    1. 受信したデバイス データをリアルタイムで処理し、その結果をストレージ アカウントに書き込む "Azure Stream Analytics" ジョブが作成されます。
+    1. 処理されたデータの格納に使用される "Azure ストレージ アカウント" が作成されます。**
+    1. 受信したデバイス データをリアルタイムで処理し、その結果をストレージ アカウントに書き込む "Azure Stream Analytics" ジョブが作成されます。**
 
 ## <a name="explore-the-azure-resources"></a>Azure リソースを調べる
 
-1. [Azure portal](https://portal.azure.com?azure-portal=true) のホーム ページで **[リソース グループ]** を選び、サブスクリプション内のリソース グループを表示します。 これには、セットアップ スクリプトによって示されている **learn*xxxxxxxxxxxxxxxxx...** * リソース グループが含まれているはずです。
-2. **learn*xxxxxxxxxxxxxxxxx...** * リソース グループを選び、それに含まれるリソースを確認します。次のものが含まれている必要があります。
-    - 受信デバイス データを受け取るために使用される **iothub* xxxxxxxxxxxxx*** という名前の *IoT ハブ*。
-    - データ処理の結果が書き込まれる **store* xxxxxxxxxxxx*** という名前の "ストレージ アカウント"。
-    - ストリーミング データの処理に使用される **stream* xxxxxxxxxxxxx*** という名前の "Stream Analytics ジョブ"。
+1. In the <bpt id="p1">[</bpt>Azure portal<ept id="p1">](https://portal.azure.com?azure-portal=true)</ept>, on the home page, select <bpt id="p2">**</bpt>Resource groups<ept id="p2">**</ept> to see the resource groups in your subscription. This should include the <bpt id="p1">**</bpt>learn*xxxxxxxxxxxxxxxxx...<ept id="p1">**</ept>* resource group identified by the setup script.
+2. **learn*xxxxxxxxxxxxxxxxx...** * リソース グループを選択し、それに含まれるリソースを確認します。次のものが含まれている必要があります。
+    - 受信デバイス データを受け取るために使用される **iothub*xxxxxxxxxxxxx*** という名前の *IoT ハブ*。
+    - データ処理の結果が書き込まれる **store*xxxxxxxxxxxx*** という名前の "ストレージ アカウント"。**
+    - ストリーミング データの処理に使用される **stream*xxxxxxxxxxxxx*** という名前の "Stream Analytics ジョブ"。**
 
     これら 3 つのリソースすべてが一覧に表示されていない場合は、表示されるまで **[&#8635; 最新の情報に更新]** ボタンをクリックします。
 
-    > **注**: Learn サンドボックスを使用している場合は、リソース グループに **cloudshell* xxxxxxxx*** という名前の第 2 の "*ストレージ アカウント*" が含まれる場合があります。これは、セットアップ スクリプトの実行に使用した Azure Cloud Shell 用のデータを格納するために使われます。
+    > **注**: Learn サンドボックスを使用している場合は、リソース グループに **cloudshell*xxxxxxxx*** という名前の第 2 の "*ストレージ アカウント*" が含まれる場合があります。これは、セットアップ スクリプトの実行に使用した Azure Cloud Shell 用のデータを格納するために使われます。
 
 3. **stream*xxxxxxxxxxxxx*** Stream Analytics ジョブを選び、その **[概要]** ページの情報を見ます。次の詳細に注意してください。
-    - ジョブには、**iotinput** という名前の 1 つの "入力" と、**bloboutput** という名前の 1 つの "出力" があります。 これらでは、セットアップ スクリプトによって作成された IoT ハブとストレージ アカウントが参照されています。
-    - ジョブの "クエリ" では、**iotinput** 入力からデータが読み取られ、10 秒ごとに処理されたメッセージの数をカウントして集計されて、結果が **bloboutput** 出力に書き込まれます。
+    - The job has one <bpt id="p1">*</bpt>input<ept id="p1">*</ept> named <bpt id="p2">**</bpt>iotinput<ept id="p2">**</ept>, and one <bpt id="p3">*</bpt>output<ept id="p3">*</ept> named <bpt id="p4">**</bpt>bloboutput<ept id="p4">**</ept>. These reference the IoT Hub and Storage account created by the setup script.
+    - ジョブの "クエリ" では、**iotinput** 入力からデータが読み取られ、10 秒ごとに処理されたメッセージの数をカウントして集計されて、結果が **bloboutput** 出力に書き込まれます。**
 
 ## <a name="use-the-resources-to-analyze-streaming-data"></a>リソースを使用してストリーミング データを分析する
 
@@ -85,7 +80,7 @@ ms.locfileid: "147693506"
     Device simulation in progress: 6%|#    | 7/120 [00:08<02:21, 1.26s/it]
     ```
 
-5. シミュレーションが実行されている間に Azure portal に戻り、**learn*xxxxxxxxxxxxxxxxx...** * リソース グループのページに戻って、**store*xxxxxxxxxxxx*** ストレージ アカウントを選びます。
+5. シミュレーションが実行されている間に Azure portal に戻り、**learn*xxxxxxxxxxxxxxxxx...** * リソース グループのページに戻って、**store*xxxxxxxxxxxx*** ストレージ アカウントを選択します。
 6. ストレージ アカウント ブレードの左側のペインで、**[コンテナー]** タブを選びます。
 7. **data** コンテナーを開きます。
 8. **data** コンテナーで、今年のフォルダーと月、日、時のサブフォルダーが含まれるフォルダー階層内を移動します。
