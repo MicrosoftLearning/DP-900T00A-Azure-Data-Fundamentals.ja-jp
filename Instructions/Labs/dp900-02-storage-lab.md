@@ -21,8 +21,8 @@ Azure Storage を使用する際の最初の手順は、Azure サブスクリプ
 1. まだサインインしていない場合は、[Azure portal](https://portal.azure.com?azure-portal=true) にサインインします。
 1. On the Azure portal home page, select <bpt id="p1">**</bpt>&amp;#65291; Create a resource<ept id="p1">**</ept> from the upper left-hand corner and search for <bpt id="p2">*</bpt>Storage account<ept id="p2">*</ept>. Then in the resulting <bpt id="p1">**</bpt>Storage account<ept id="p1">**</ept> page, select <bpt id="p2">**</bpt>Create<ept id="p2">**</ept>.
 1. **[ストレージ アカウントの作成]** ページで、次の値を入力します。
-    - **サブスクリプション**:Azure サブスクリプションを選択します。
-    - **リソース グループ**: ご自分で選択した名前を持つ新しいリソース グループを作成します。
+    - <bpt id="p1">**</bpt>Subscription<ept id="p1">**</ept>: If you're using a sandbox, select <bpt id="p2">*</bpt>Concierge Subscription<ept id="p2">*</ept>. Otherwise, select your Azure subscription.
+    - **リソース グループ**: サンドボックスを使用している場合は、既存のリソース グループを選びます (この名前は、*learn-xxxx...* のようになります)。それ以外の場合は、任意の名前で新しいリソース グループを作成します。
     - **ストレージ アカウント名**: 小文字と数字を使用して、ストレージ アカウントの一意の名前を入力します。
     - **リージョン**: 使用可能な場所を選択します。
     - **パフォーマンス**: "標準"**
@@ -48,7 +48,7 @@ Azure Storage を使用する際の最初の手順は、Azure サブスクリプ
 1. [ストレージ ブラウザー] ページで **[BLOB コンテナー]** を選択し、**data** コンテナーが一覧表示されていることを確認します。
 1. **data** コンテナーを選択します。空である点に注意してください。
 1. **[&#65291; ディレクトリの追加]** を選択し、**products** という名前の新しいディレクトリを作成する前にフォルダーに関する情報を読みます。
-1. ストレージ ブラウザーで、作成した **products** フォルダーの内容が現在のビューに表示されていることを確認します。ページの上部にある "階層リンク" に **BLOB コンテナー > data > products** のパスが反映されているのを確認します。
+1. ストレージ エクスプローラーで、作成した **products** フォルダーの内容が現在のビューに表示されていることを確認します。ページの上部にある "階層リンク" に **BLOB コンテナー > data > products** のパスが反映されているのを確認します。
 1. 階層リンクで、**data** を選択して **data** コンテナーに切り替えます。**products** という名前のフォルダーは含まれ<u>ない</u>ので注意してください。
 
     Folders in blob storage are virtual, and only exist as part of the path of a blob. Since the <bpt id="p1">**</bpt>products<ept id="p1">**</ept> folder contained no blobs, it isn't really there!
@@ -68,11 +68,11 @@ Azure Data Lake Store Gen2 support enables you to use hierarchical folders to or
 
 1. `https://aka.ms/product2.json` から [product2.json](https://aka.ms/product2.json?azure-portal=true) JSON ファイルをダウンロードし、コンピューターの以前 ** product1.json** をダウンロードしたのと同じフォルダーに保存します。後で BLOB ストレージにアップロードします。
 1. ストレージ アカウントの Azure portal ページの左側にある **[設定]** セクションまで下にスクロールし、 **[Data Lake Gen2 のアップグレード]** を選択します。
-1. In the ****Data Lake Gen2 upgrade**** page, expand and complete each step to upgrade your storage account to enable hierarchical namespace and support Azure Data Lake Storage Gen 2. This may take some time.
+1. Azure portal ホーム ページで、左上隅にある **[&#65291; リソースの作成]** を選択し、"ストレージ アカウント" を検索します。**
 1. アップグレードが完了したら、左側のペインの上部セクションで **[ストレージ ブラウザー]** を選択し、**data** BLOB コンテナーのルートに戻ります。これには引き続き **product_data** フォルダーが含まれます。
 1. **product_data** フォルダーを選択し、前にアップロードした **product1.json** ファイルがまだ含まれているか確認します。
 1. **[&#10514; アップロード]** ボタンを使用して、 **[BLOB のアップロード]** パネルを開きます。
-1. Azure portal ホーム ページで、左上隅にある **[&#65291; リソースの作成]** を選択し、"ストレージ アカウント" を検索します。**
+1. 次に、結果として得られる **[ストレージ アカウント]** ページで、**[作成]** を選択します。
 1. **[BLOB のアップロード]** パネルが開いている場合は閉じ、**product_data** フォルダーに **product2.json** ファイルが含まれているのを確認します。
 1. 左側の **[データ ストレージ]** セクションで、**[コンテナー]** を選択します。
 1. **data** コンテナーを開き、作成した **product_data** が一覧表示されていることを確認します。
@@ -86,7 +86,7 @@ Azure Files は、クラウドベースのファイル共有を作成する方�
 1. ストレージ コンテナーの Azure portal ページの左側にある **[データ ストレージ]** セクションで、**[ファイル共有]** を選択します。
 1. [ファイル共有] ページで **[&#65291; ファイル共有]** を選択し、**トランザクション最適化**レベルを使用して **files** という名前の新しいファイル共有を追加します。
 1. **[ファイル共有]** で、新しい **files** ファイル共有を開きます。
-1. 次に、結果として得られる **[ストレージ アカウント]** ページで、**[作成]** を選択します。
+1. At the top of the page, select <bpt id="p1">**</bpt>Connect<ept id="p1">**</ept>. Then in the <bpt id="p1">**</bpt>Connect<ept id="p1">**</ept> pane, note that there are tabs for common operating systems (Windows, Linux, and macOS) that contain scripts you can run to connect to the shared folder from a client computer.
 1. **[接続]** ペインを閉じ、次に **files** ファイル ページを閉じて、Azure ストレージ アカウントの **[ファイル共有]** ページに戻ります。
 
 ## <a name="explore-azure-tables"></a>Azure Tables を確認する
@@ -106,7 +106,7 @@ Azure テーブルは、データ値の格納を必要としても、リレー�
 
     |プロパティ名 | Type | 値 |
     | ------------ | ---- | ----- |
-    | 名前 | String | ウィジェット |
+    | Name | String | ウィジェット |
 
 1. 次の値を持つ 2 番目のプロパティを追加します。
 
@@ -122,7 +122,7 @@ Azure テーブルは、データ値の格納を必要としても、リレー�
     | ------------ | ---- | ----- |
     | PartitionKey | String | 1 |
     | RowKey | 文字列 | 2 |
-    | 名前 | String | Kniknak |
+    | Name | String | Kniknak |
     | Price | Double | 1.99 |
     | Discontinued | Boolean | true |
 
