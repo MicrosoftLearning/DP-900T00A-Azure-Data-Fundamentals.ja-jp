@@ -1,33 +1,103 @@
 ---
 lab:
   title: Azure Stream Analytics を調べる
-  module: Explore data analytics in Azure
-ms.openlocfilehash: 925607333098d0774839d705d4e055a78e32de27
-ms.sourcegitcommit: e73a39e323ef061919b58561ff1afdca876ad2b5
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2022
-ms.locfileid: "141493693"
+  module: Explore fundamentals of real-time analytics
 ---
-## <a name="explore-azure-stream-analytics"></a>Azure Stream Analytics を調べる
+
+# <a name="explore-azure-stream-analytics"></a>Azure Stream Analytics を調べる
 
 この演習では、Azure サブスクリプションに Azure Stream Analytics ジョブをプロビジョニングし、それを使用してリアルタイム データのストリームを処理します。
 
-> **注**:この演習は Microsoft Learn のモジュールの一部であり、*サンドボックス* の Azure サブスクリプションを使用するオプションが含まれています。 ただし、講師による指導付きクラスの一部としてこの演習を行っている場合は、サンドボックスではなく、クラスの一部として提供される Azure サブスクリプションを使用する必要があります。
+このラボは完了するまで、約 **15** 分かかります。
 
-Microsoft Learn の演習を始める前に、Azure サブスクリプション用に Cloud Shell 環境を準備する必要があります。
+## <a name="before-you-start"></a>開始する前に
 
-1. [Azure portal](https://portal.azure.com) (`https://portal.azure.com`) で自分の Azure サブスクリプション資格情報を使用して、Azure サブスクリプションにサインインします。
-2. ページ上部の検索バーの右側にある **[\>_]** ボタンを使用して、Azure portal で新しい Cloud Shell を作成し、メッセージが表示されたら **_Bash_** 環境を選択してストレージを作成します。 次に示すように、Azure portal の下部にあるペインに、Cloud Shell のコマンド ライン インターフェイスが表示されます。
+管理レベルのアクセス権を持つ [Azure サブスクリプション](https://azure.microsoft.com/free)が必要です。
+
+## <a name="create-azure-resources"></a>Azure リソースを作成する
+
+1. [Azure portal](https://portal.azure.com) でご自分の Azure サブスクリプション資格情報を使用して、Azure サブスクリプションにサインインします。
+
+1. Use the <bpt id="p1">**</bpt>[<ph id="ph1">\&gt;</ph>_]<ept id="p1">**</ept> button to the right of the search bar at the top of the page to create a new Cloud Shell in the Azure portal, selecting a <bpt id="p2">***</bpt>Bash<ept id="p2">***</ept> environment and creating storage if prompted. The cloud shell provides a command line interface in a pane at the bottom of the Azure portal, as shown here:
 
     ![Azure portal と Cloud Shell のペイン](./images/cloud-shell.png)
 
-3. ペインの上部にある区分線をドラッグして Cloud Shell のサイズを変更したり、ペインの右上にある **&#8212;** 、 **&#9723;** 、**X** アイコンを使用して、ペインを最小化または最大化したり、閉じたりすることができます。 Azure Cloud Shell の使い方について詳しくは、[Azure Cloud Shell のドキュメント](https://docs.microsoft.com/azure/cloud-shell/overview)をご覧ください。
+1. Azure Cloud Shell で次のコマンドを入力して、この演習に必要なファイルをダウンロードします。
 
-4. これで、Microsoft Learn の演習を行う準備ができました。Learn モジュールの (ブランクの) もの (サンドボックス サブスクリプションを使用するマイペースで進める学習者向けに提供されています) ではなく、Azure portal の Cloud Shell を使用できます。
+    ```bash
+    git clone https://github.com/MicrosoftLearning/DP-900T00A-Azure-Data-Fundamentals dp-900
+    ```
 
-    以下のリンクを使用して、Microsoft Learn の演習を開きます。
+1. コマンドが完了するまで待ってから、次のコマンドを入力して、現在のディレクトリを、この演習用のファイルが含まれるフォルダーに変更します。
 
-    **[Microsoft Learn に移動する](https://docs.microsoft.com/learn/modules/explore-fundamentals-stream-processing/5-exercise-stream-analytics#create-azure-resources)**
+    ```bash
+    cd dp-900/streaming
+    ```
 
-> **今後の学習**:後で時間がある場合は、この Microsoft Learn モジュールに戻り、それに含まれる他の演習 (Spark Streaming と Azure Synapse Data Explorer の探索など) を試してみてください。
+1. 次のコマンドを入力して、この演習で必要な Azure リソースを作成するスクリプトを実行します。
+
+    ```bash
+    bash setup.sh
+    ```
+
+    実行されたスクリプトによって次のアクションが実行されるのを待ちます。
+
+    1. リソースの作成に必要な Azure CLI 拡張機能がインストールされます ("試験段階の拡張機能に関する警告は無視してかまいません")。**
+    1. この演習用に提供されている Azure リソース グループを見つけます。
+    1. シミュレートされたデバイスからデータのストリームを受け取るために使用される *Azure IoT Hub* リソースが作成されます。
+    1. 処理されたデータの格納に使用される "Azure ストレージ アカウント" が作成されます。**
+    1. 受信したデバイス データをリアルタイムで処理し、その結果をストレージ アカウントに書き込む "Azure Stream Analytics" ジョブが作成されます。**
+
+## <a name="explore-the-azure-resources"></a>Azure リソースを調べる
+
+1. In the <bpt id="p1">[</bpt>Azure portal<ept id="p1">](https://portal.azure.com?azure-portal=true)</ept>, on the home page, select <bpt id="p2">**</bpt>Resource groups<ept id="p2">**</ept> to see the resource groups in your subscription. This should include the <bpt id="p1">**</bpt>learn*xxxxxxxxxxxxxxxxx...<ept id="p1">**</ept>* resource group identified by the setup script.
+2. **learn*xxxxxxxxxxxxxxxxx...** * リソース グループを選択し、それに含まれるリソースを確認します。次のものが含まれている必要があります。
+    - 受信デバイス データを受け取るために使用される **iothub*xxxxxxxxxxxxx*** という名前の *IoT ハブ*。
+    - データ処理の結果が書き込まれる **store*xxxxxxxxxxxx*** という名前の "ストレージ アカウント"。**
+    - ストリーミング データの処理に使用される **stream*xxxxxxxxxxxxx*** という名前の "Stream Analytics ジョブ"。**
+
+    これら 3 つのリソースすべてが一覧に表示されていない場合は、表示されるまで **[&#8635; 最新の情報に更新]** ボタンをクリックします。
+
+    > **注**: Learn サンドボックスを使用している場合は、リソース グループに **cloudshell*xxxxxxxx*** という名前の第 2 の "*ストレージ アカウント*" が含まれる場合があります。これは、セットアップ スクリプトの実行に使用した Azure Cloud Shell 用のデータを格納するために使われます。
+
+3. **stream*xxxxxxxxxxxxx*** Stream Analytics ジョブを選び、その **[概要]** ページの情報を見ます。次の詳細に注意してください。
+    - The job has one <bpt id="p1">*</bpt>input<ept id="p1">*</ept> named <bpt id="p2">**</bpt>iotinput<ept id="p2">**</ept>, and one <bpt id="p3">*</bpt>output<ept id="p3">*</ept> named <bpt id="p4">**</bpt>bloboutput<ept id="p4">**</ept>. These reference the IoT Hub and Storage account created by the setup script.
+    - ジョブの "クエリ" では、**iotinput** 入力からデータが読み取られ、10 秒ごとに処理されたメッセージの数をカウントして集計されて、結果が **bloboutput** 出力に書き込まれます。**
+
+## <a name="use-the-resources-to-analyze-streaming-data"></a>リソースを使用してストリーミング データを分析する
+
+1. Stream Analytics ジョブの **[概要]** ページの先頭にある **[&#9655; 開始]** ボタンを選んでから、**[ジョブの開始]** ペインで **[開始]** を選んでジョブを開始します。
+2. ストリーミング ジョブが正常に開始されたことを示す通知を待ちます。
+3. Azure Cloud Shell に戻り、次のコマンドを入力して、IoT ハブにデータを送信するデバイスをシミュレートします。
+
+    ```
+    bash iotdevice.sh
+    ```
+
+4. シミュレーションが開始するまで待ちます。これは、次のような出力で示されます。
+
+    ```
+    Device simulation in progress: 6%|#    | 7/120 [00:08<02:21, 1.26s/it]
+    ```
+
+5. シミュレーションが実行されている間に Azure portal に戻り、**learn*xxxxxxxxxxxxxxxxx...** * リソース グループのページに戻って、**store*xxxxxxxxxxxx*** ストレージ アカウントを選択します。
+6. ストレージ アカウント ブレードの左側のペインで、**[コンテナー]** タブを選びます。
+7. **data** コンテナーを開きます。
+8. **data** コンテナーで、今年のフォルダーと月、日、時のサブフォルダーが含まれるフォルダー階層内を移動します。
+9. 時のフォルダーで、作成されたファイルを選びます。このファイルには、**0_xxxxxxxxxxxxxxxx.json** のような名前が付いています。
+10. ファイルのページで **[編集]** を選び、ファイルの内容を確認します。次のように、IoT デバイスから受信したメッセージの数を示す 10 秒ごとの JSON レコードで構成されているはずです。
+
+    ```
+    {"starttime":"2021-10-23T01:02:13.2221657Z","endtime":"2021-10-23T01:02:23.2221657Z","device":"iotdevice","messages":2}
+    {"starttime":"2021-10-23T01:02:14.5366678Z","endtime":"2021-10-23T01:02:24.5366678Z","device":"iotdevice","messages":3}
+    {"starttime":"2021-10-23T01:02:15.7413754Z","endtime":"2021-10-23T01:02:25.7413754Z","device":"iotdevice","messages":4}
+    ...
+    ```
+
+11. **[&#8635; 最新の情報に更新]** ボタンを使ってファイルを更新します。デバイスから IoT ハブにストリーミングされたデバイス データが Stream Analytics ジョブによってリアルタイムで処理されているため、追加の結果がファイルに書き込まれていることに注意してください。
+12. Azure Cloud Shell に戻り、デバイスのシミュレーションが完了するまで待ちます (約 3 分間実行されるはずです)。
+13. Azure portal に戻り、ファイルをもう一度最新の情報に更新して、シミュレーション中に生成された結果の完全なセットを確認します。
+14. **learn*xxxxxxxxxxxxxxxxx...** * リソース グループに戻り、**stream*xxxxxxxxxxxxx*** Stream Analytics ジョブを再び開きます。
+15. Stream Analytics ジョブのページの上部にある **[&#11036; 停止]** ボタンを使ってジョブを停止し、メッセージが表示されたら確認します。
+
+> **注**: ストリーミング ソリューションの調査が完了した場合は、この演習で作成したリソース グループを削除してください。
