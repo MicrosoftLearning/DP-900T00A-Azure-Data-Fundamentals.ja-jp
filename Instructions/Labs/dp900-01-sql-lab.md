@@ -16,7 +16,7 @@ lab:
 
 ## <a name="provision-an-azure-sql-database-resource"></a>Azure SQL Database リソースをプロビジョニングする
 
-1. In the <bpt id="p1">[</bpt>Azure portal<ept id="p1">](https://portal.azure.com?azure-portal=true)</ept>, select <bpt id="p2">**</bpt>&amp;#65291; Create a resource<ept id="p2">**</ept> from the upper left-hand corner and search for <bpt id="p3">*</bpt>Azure SQL<ept id="p3">*</ept>. Then in the resulting <bpt id="p1">**</bpt>Azure SQL<ept id="p1">**</ept> page, select <bpt id="p2">**</bpt>Create<ept id="p2">**</ept>.
+1. [Azure portal](https://portal.azure.com?azure-portal=true) で、左上隅にある **[&#65291; リソースの作成]** を選択し、 *[Azure SQL]* を検索します。 次に、表示される **[Azure SQL]** ページで、**[作成]** を選択します。
 
 1. 使用可能な Azure SQL のオプションを確認し、**[SQL データベース]** タイルで **[単一データベース]** が選択されていることを確認して、**[作成]** を選択します。
 
@@ -26,12 +26,12 @@ lab:
     - **サブスクリプション**:Azure サブスクリプションを選択します。
     - **リソース グループ**: ご自分で選択した名前を持つ新しいリソース グループを作成します。
     - **データベース名**: *AdventureWorks*
-    - <bpt id="p1">**</bpt>Server<ept id="p1">**</ept>:  Select <bpt id="p2">**</bpt>Create new<ept id="p2">**</ept> and create a new server with a unique name in any available location. Use <bpt id="p1">**</bpt>SQL authentication<ept id="p1">**</ept> and specify your name as the server admin login and a suitably complex password (remember the password - you'll need it later!)
+    -                 **サーバー**: **[新規作成]** を選択し、使用可能な任意の場所に一意の名前を持つ新しいサーバーを作成します。 **SQL 認証**を使用し、サーバー管理者ログインとしてご自分の名前を指定して、適切な複雑なパスワードを指定します (パスワードを覚えておいてください。後で必要になります)。
     - **SQL エラスティック プールを使用しますか?**: *いいえ*
     - **コンピューティングとストレージ**: 変更しません
     - **バックアップ ストレージの冗長性**: "ローカル冗長バックアップ ストレージ"**
 
-1. On the <bpt id="p1">**</bpt>Create SQL Database<ept id="p1">**</ept> page, select <bpt id="p2">**</bpt>Next :Networking &gt;<ept id="p2">**</ept>, and on the <bpt id="p3">**</bpt>Networking<ept id="p3">**</ept> page, in the <bpt id="p4">**</bpt>Network connectivity<ept id="p4">**</ept> section, select <bpt id="p5">**</bpt>Public endpoint<ept id="p5">**</ept>. Then select <bpt id="p1">**</bpt>Yes<ept id="p1">**</ept> for both options in the <bpt id="p2">**</bpt>Firewall rules<ept id="p2">**</ept> section to allow access to your database server from Azure services and your current client IP address.
+1. **[SQL Database の作成]** ページで、 **[次へ: ネットワーク]** を選択し、 **[ネットワーク]** ページの **[ネットワーク接続]** セクションで、 **[パブリック エンドポイント]** を選択します。 **[ファイアウォール規則]** セクションの両方のオプションに対して **[はい]** を選択すると、Azure サービスと現在のクライアント IP アドレスからデータベース サーバーへのアクセスが許可されます。
 
 1. **[次へ: セキュリティ]** を選択し、 **[Microsoft Defender for SQL を有効にする]** オプションを **[今はしない]** に設定します。
 
@@ -39,7 +39,7 @@ lab:
 
 1. **[確認と作成]** を選択し、**[作成]** を選択して、Azure SQL データベースを作成します。
 
-1. Wait for deployment to complete. Then go to the resource that was deployed, which should look like this:
+1. デプロイが完了するまで待ちます。 その後、デプロイされたリソースにアクセスすると、次のように表示されます。
 
     ![[SQL Database] ページが表示されている Azure portal のスクリーンショット。](images//sql-database-portal.png)
 

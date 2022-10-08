@@ -18,7 +18,7 @@ lab:
 
 この演習では、Azure Database for PostgreSQL リソースをプロビジョニングします。
 
-1. In the Azure portal, select <bpt id="p1">**</bpt>&amp;#65291; Create a resource<ept id="p1">**</ept> from the upper left-hand corner and search for <bpt id="p2">*</bpt>Azure Database for PostgreSQL<ept id="p2">*</ept>. Then in the resulting <bpt id="p1">**</bpt>Azure Database for PostgreSQL<ept id="p1">**</ept> page, select <bpt id="p2">**</bpt>Create<ept id="p2">**</ept>.
+1. Azure portal で、左上隅にある **[&#65291; リソースの作成]** を選択し、 *[Azure Database for PostgreSQL]* を検索します。 次に、表示される **[Azure Database for PostgreSQL]** ページで、**[作成]** を選択します。
 
 1. 使用可能な Azure Database for PostgreSQL のオプションを確認し、 **[フレキシブル サーバー]** タイルで **[作成]** を選択します。
 
@@ -43,7 +43,7 @@ lab:
 
 1. **[確認と作成]** を選択し、**[作成]** を選択して、Azure PostgreSQL データベースを作成します。
 
-1. Wait for deployment to complete. Then go to the resource that was deployed, which should look like this:
+1. デプロイが完了するまで待ちます。 その後、デプロイされたリソースにアクセスすると、次のように表示されます。
 
     ![[Azure Database for PostgreSQL] ページが表示されている Azure portal のスクリーンショット。](images/postgresql-portal.png)
 

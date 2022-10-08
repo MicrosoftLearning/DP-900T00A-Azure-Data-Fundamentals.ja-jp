@@ -19,11 +19,11 @@ lab:
 Microsoft Power BI Desktop が Windows コンピューターにまだインストールされていない場合は、無料でダウンロードしてインストールできます。
 
 1. [https://aka.ms/power-bi-desktop](https://aka.ms/power-bi-desktop?azure-portal=true) から Power BI Desktop インストーラーをダウンロードします。
-1. When the file has downloaded, open it, and use the setup wizard to install Power BI Desktop on your computer. This insatllation may take a few minutes.
+1. ファイルのダウンロードが完了したら、ファイルを開き、セットアップ ウィザードを使用してコンピューターに Power BI Desktop をインストールします。 このインストールには数分かかる場合があります。
 
 ## <a name="import-data"></a>データのインポート
 
-1. Open Power BI Desktop. The application interface should look similar to this:
+1. Power BI Desktop を開きます。 アプリケーション インターフェイスは次のようになります。
 
     ![Power BI Desktop のスタート画面を示すスクリーンショット。](images/power-bi-start.png)
 
@@ -41,7 +41,7 @@ Microsoft Power BI Desktop が Windows コンピューターにまだインス�
 
 1. [Web コンテンツへのアクセス] ダイアログで、 **[接続]** を選択します。
 
-1. Verify that the URL opens a dataset containing customer data, as shown below. Then select <bpt id="p1">**</bpt>Load<ept id="p1">**</ept> to load the data into the data model for your report.
+1. URL によって、次に示すように顧客データを含むデータセットが開くことを確認します。 次に、**[読み込み]** を選択して、レポートのデータ モデルにデータを読み込みます。
 
     ![Power BI に表示される顧客データのデータセットを示すスクリーンショット。](images/customers.png)
 
@@ -67,7 +67,7 @@ Microsoft Power BI Desktop が Windows コンピューターにまだインス�
 
 インポートした 3 つのデータ テーブルがデータ モデルに読み込まれたため、今度はこれを探索して検索条件を絞ります。
 
-1. In Power BI Desktop, on the left-side edge, select the <bpt id="p1">**</bpt>Model<ept id="p1">**</ept> tab, and then arrange the tables in the model so you can see them. You can hide the panes on the right side by using the <bpt id="p1">**</bpt><ph id="ph1">&gt;&gt;</ph><ept id="p1">**</ept> icons:
+1. Power BI Desktop の左側の端で、 **[モデル]** タブを選択し、モデルの表を調節して表示されるようにします。 右側のペインは、 **>>** アイコンを使用して非表示にすることができます。
 
     ![Power BI の [モデル] タブを示すスクリーンショット。](images/model-tab.png)
 
@@ -77,12 +77,12 @@ Microsoft Power BI Desktop が Windows コンピューターにまだインス�
 
     この手順により、収益の値がレポートの視覚化で通貨として確実に表示されるようになります。
 
-1. In the products table, right-click the <bpt id="p1">**</bpt>Category<ept id="p1">**</ept> field (or open its <bpt id="p2">**</bpt><ph id="ph1">&amp;vellip;</ph><ept id="p2">**</ept> menu) and select <bpt id="p3">**</bpt>Create hierarchy<ept id="p3">**</ept>. This step creates a hierarchy named <bpt id="p1">**</bpt>Category Hierarchy<ept id="p1">**</ept>. You may need to expand or scroll in the <bpt id="p1">**</bpt>products<ept id="p1">**</ept> table to see this - you can also see it in the <bpt id="p2">**</bpt>Fields<ept id="p2">**</ept> pane:
+1. products テーブルで、 **[Category]** フィールドを右クリックし (または **&vellip;** メニューを開いて)、 **[階層の作成]** を選択します。 この手順によって、**カテゴリ階層**という名前の階層が作成されます。 これを確認するには、**products** テーブルを展開するかスクロールする必要がある場合があります。または、 **[フィールド]** ペインでも確認することができます。
 
     ![Power BI でカテゴリ階層を追加する方法を示すスクリーンショット。](images/category-hierarchy.png)
 
-1. In the products table, right-click the <bpt id="p1">**</bpt>ProductName<ept id="p1">**</ept> field (or open its <bpt id="p2">**</bpt><ph id="ph1">&amp;vellip;</ph><ept id="p2">**</ept> menu) and select <bpt id="p3">**</bpt>Add to hierarchy<ept id="p3">**</ept><ph id="ph2"> &gt; </ph><bpt id="p4">**</bpt>Category Hierarchy<ept id="p4">**</ept>. This adds the <bpt id="p1">**</bpt>ProductName<ept id="p1">**</ept> field to the hierarchy you created previously.
-1. In the <bpt id="p1">**</bpt>Fields<ept id="p1">**</ept> pane, right-click <bpt id="p2">**</bpt>Category Hierarchy<ept id="p2">**</ept> (or open its <bpt id="p3">**</bpt>...<ept id="p3">**</ept> menu) and select <bpt id="p4">**</bpt>Rename<ept id="p4">**</ept>. Then rename the hierarchy to <bpt id="p1">**</bpt>Categorized Product<ept id="p1">**</ept>.
+1. products テーブルで、**ProductName** フィールドを右クリックし (または **&vellip;** メニューを開いて)、 **[階層に追加]**  >  **[Category 階層]** を選択します。 これにより、前に作成した階層に **ProductName** フィールドが追加されます。
+1. **[フィールド]** ウィンドウで、**[Category 階層]** を右クリックし (または **[...]** メニューを開いて)、**[名前の変更]** を選択します。 階層の名前を **[Categorized Product]** に変更します。
 
     ![Power BI で階層の名前を変更する方法を示すスクリーンショット。](images/rename-hierarchy.png)
 
@@ -95,9 +95,9 @@ Microsoft Power BI Desktop が Windows コンピューターにまだインス�
 
 ## <a name="create-a-report"></a>レポートを作成する
 
-Now you're almost ready to create a report. First you need to check some settings to ensure all visualizations are enabled.
+これでレポートを作成する準備がほぼ完了しました。 まず、いくつかの設定を確認して、すべての視覚化が有効になっていることを確認する必要があります。
 
-1. On the <bpt id="p1">**</bpt>File<ept id="p1">**</ept> menu, select <bpt id="p2">**</bpt>Options and Settings<ept id="p2">**</ept>. Then select <bpt id="p1">**</bpt>Options<ept id="p1">**</ept>, and in the <bpt id="p2">**</bpt>Security<ept id="p2">**</ept> section, ensure that <bpt id="p3">**</bpt>Use Map and Filled Map visuals<ept id="p3">**</ept> is enabled and select <bpt id="p4">**</bpt>OK<ept id="p4">**</ept>.
+1. **[ファイル]** メニューの **[オプションと設定]** をクリックします。 次に、**[オプション]** を選択し、**[セキュリティ]** セクションで、**[地図と塗り分け地図の画像を使用する]** が有効になっていることを確認し、**[OK]** を選択します。
 
     ![PowerBI で地図および塗り分け地図ビジュアルのプロパティを設定する方法を示すスクリーンショット。](images/set-options.png)
 
@@ -107,42 +107,42 @@ Now you're almost ready to create a report. First you need to check some setting
 
     ![Power BI の [レポート] タブを示すスクリーンショット。](images/report-tab.png)
 
-1. In the ribbon, above the report design surface, select <bpt id="p1">**</bpt>Text Box<ept id="p1">**</ept> and add a text box containing the text <bpt id="p2">**</bpt>Sales Report<ept id="p2">**</ept> to the report. Format the text to make it bold with a font size of 32.
+1. レポート デザイン画面の上にあるリボンで **[テキスト ボックス]** を選択し、「**Sales Report**」というテキストを含むテキスト ボックスをレポートに追加します。 テキストの書式を設定して、フォントサイズを 32 にして太字にします。
 
     ![Power BI でテキスト ボックスを追加する方法を示すスクリーンショット。](images/text-box.png)
 
-1. ファイルのダウンロードが完了したら、ファイルを開き、セットアップ ウィザードを使用してコンピューターに Power BI Desktop をインストールします。
+1. レポート上の空の領域を選択して、テキスト ボックスを選択解除します。 次に、**[フィールド]** ウィンドウで **[products]** を展開し、**[Categorized Products]** フィールドを選択します。 この手順により、テーブルがレポートに追加されます。
 
     ![Power BI でレポートに分類された製品のテーブルを追加する方法を示すスクリーンショット。](images/categorized-products-table.png)
 
-1. このインストールには数分かかる場合があります。
+1. テーブルを選択したまま、**[フィールド]** ウィンドウで **[orders]** を展開し、**[Revenue]** を選択します。 テーブルに Revenue 列が追加されます。 テーブルを表示するには、サイズを拡大する必要がある場合があります。
 
-    The revenue is formatted as currency, as you specified in the model. However, you didn't specify the number of decimal places, so the values include fractional amounts. It won't matter for the visualizations you're going to create, but you could go back to the <bpt id="p1">**</bpt>Model<ept id="p1">**</ept> or <bpt id="p2">**</bpt>Data<ept id="p2">**</ept> tab and change the decimal places if you wish.
+    収益は、モデルで指定したとおりに通貨として書式設定されます。 ただし、小数点以下の桁数を指定していないので、値には小数部が含まれます。 作成しようとしている視覚化にとって重要ではありませんが、 **[モデル]** タブまたは **[データ]** タブに戻って小数点以下の桁数を変更することもできます。
 
     ![レポートに収益が含まれるカテゴリ別製品のテーブルを示すスクリーンショット。](images/revenue-column.png)
 
-1. With the table still selected, in the <bpt id="p1">**</bpt>Visualizations<ept id="p1">**</ept> pane, select the <bpt id="p2">**</bpt>Stacked column chart<ept id="p2">**</ept> visualization. The table is changed to a column chart showing revenue by category.
+1. テーブルを選択したまま、**[視覚化]** ウィンドウで、**[積み上げ縦棒グラフ]** の視覚化を選択します。 テーブルが、カテゴリ別の収益を示す縦棒グラフに変更されます。
 
     ![レポートに収益が含まれるカテゴリ別製品の積み上げ縦棒グラフを示すスクリーンショット。](images/stacked-column-chart.png)
 
-1. Power BI Desktop を開きます。
+1. 選択した縦棒グラフの上にある **[&#8595;]** アイコンを選択して、ドリルダウンをオンにします。 次に、グラフで 2 番目の列 (*Road Bikes*) を選択してドリルダウンし、このカテゴリの個々の製品の収益を確認します。 この機能は、カテゴリと製品の階層を定義したため使用でます。
 
     ![カテゴリ内の製品を表示するためにドリルダウンされた縦棒グラフを示すスクリーンショット。](images/drill-down.png)
 
-1. アプリケーション インターフェイスは次のようになります。
-1. Select a blank area of the report, and then in the <bpt id="p1">**</bpt>Fields<ept id="p1">**</ept> pane, select the <bpt id="p2">**</bpt>Quantity<ept id="p2">**</ept> field in the <bpt id="p3">**</bpt>orders<ept id="p3">**</ept> table and the <bpt id="p4">**</bpt>Category<ept id="p4">**</ept> field in the <bpt id="p5">**</bpt>products<ept id="p5">**</ept> table. This step results in another column chart showing sales quantity by product category.
+1. **[&#x2191;]** アイコンを使用して、カテゴリ レベルにドリルアップして戻ります。 次に、 **(** [&#8595;] **)** アイコンを選択して、ドリルダウン機能をオフにします。
+1. レポートの空白の領域を選択し、**[フィールド]** ウィンドウで、**[orders]** テーブルの **[Quantity]** フィールドと **[products]** テーブルの **[Category]** フィールドを選択します。 この手順により、製品カテゴリ別の売上数量を示す別の縦棒グラフが表示されます。
 1. 新しい縦棒グラフを選択した状態で、**[視覚化]** ウィンドウの **[円グラフ]** を選択し、グラフのサイズを変更して、カテゴリ別の収益の縦棒グラフの横に配置します。
 
     ![カテゴリ別の売上数量を表す円グラフを示すスクリーンショット。](images/category-pie-chart.png)
 
-1. Select a blank area of the report, and then in the <bpt id="p1">**</bpt>Fields<ept id="p1">**</ept> pane, select the <bpt id="p2">**</bpt>City<ept id="p2">**</ept> field in the <bpt id="p3">**</bpt>customers<ept id="p3">**</ept> table and then select the <bpt id="p4">**</bpt>Revenue<ept id="p4">**</ept> field in the <bpt id="p5">**</bpt>orders<ept id="p5">**</ept> table. This results in a map showing sales revenue by city. Rearrange and resize the visualizations as needed:
+1. レポートの空白の領域を選択し、**[フィールド]** ウィンドウで、**[customers]** テーブルの **[City]** フィールドと **[orders]** テーブルの **[Revenue]** フィールドを選択します。 これにより、都市別の売上高を示すマップが作成されます。 必要に応じて視覚化を配置し直し、サイズ変更します。
 
     ![都市別の収益を示すマップを示すスクリーンショット。](images/revenue-map.png)
 
-1. In the map, note that you can drag, double-click, use a mouse-wheel, or pinch and drag on a touch screen to interact. Then select a specific city, and note that the other visualizations in the report are modified to highlight the data for the selected city.
+1. マップでは、ドラッグ、ダブルクリック、マウスホイールの使用、またはタッチスクリーン上でのピンチやドラッグを行って対話することができます。 次に、特定の都市を選択すると、レポート内の他の視覚化が変更されて、選択された都市のデータが強調表示されるのがわかります。
 
     ![選択された都市のデータが強調表示されている、都市別の収益を表すマップを示すスクリーンショット。](images/selected-data.png)
 
-1. On the <bpt id="p1">**</bpt>File<ept id="p1">**</ept> menu, select <bpt id="p2">**</bpt>Save<ept id="p2">**</ept>. Then save the file with an appropriate .pbix file name. You can open the file and explore data modeling and visualization further at your leisure.
+1. **[ファイル]** メニューの **[保存]** をクリックします。 次に、適切な .pbix ファイル名を使用してファイルを保存します。 都合の良いときにこのファイルを開いて、データ モデリングや視覚化をさらに調べることができます。
 
 [Power BI サービス](https://www.powerbi.com/?azure-portal=true)のサブスクリプションをお持ちの場合は、ご自分のアカウントにサインインし、レポートを Power BI ワークスペースに発行できます。 

@@ -20,7 +20,7 @@ Synapse Analytics を使用するには、Azure サブスクリプションで S
 
 1. [Azure portal](https://portal.azure.com?azure-portal=true) で Azure portal を開き、自分の Azure サブスクリプションに関連付けられている資格情報を使ってサインインします。
 
-    > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Ensure you are working in the directory containing your own subscription - indicated at the top right under your user ID. If not, select the user icon and switch directory.
+    >                 **注**: ご自分のサブスクリプションが含まれているディレクトリで作業していることを確認してください。右上のユーザー ID の下に示されています。 表示されない場合は、ユーザー アイコンを選択してディレクトリを切り替えてください。
 
 2. Azure portal の **[ホーム]** ページで、**[&#65291; リソースの作成]** アイコンを使用して、新しいリソースを作成します。
 3. *Azure Synapse Analytics* を検索し、次の設定を使用して、新しい **Azure Synapse Analytics** リソースを作成します。
@@ -33,7 +33,7 @@ Synapse Analytics を使用するには、Azure サブスクリプションで S
         - **アカウント名**: *一意の名前 (例: "datalake<your_name>") の新しいアカウントを作成します*。
         - **アカウント名**: *一意の名前 (例: "fs<your_name>") の新しいファイル システムを作成します*。
 
-    > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: A Synapse Analytics workspace requires two resource groups in your Azure subscription; one for resources you explicitly create, and another for managed resources used by the service. It also requires a Data Lake storage account in which to store data, scripts, and other artifacts.
+    >                 **注**: Synapse Analytics ワークスペースには、Azure サブスクリプションに 2 つのリソース グループが必要です。1 つは明示的に作成したリソース用で、もう 1 つはサービスによって使用される管理対象リソース用です。 また、データ、スクリプト、その他のアーティファクトを格納するための Data Lake ストレージ アカウントも必要です。
 
 4. これらの詳細を入力したら、**[確認と作成]** を選択し、**[作成]** を選択して、ワークスペースを作成します。
 5. ワークスペースが作成されるまで待ちます。これには 5 分程度かかる場合があります。
@@ -67,7 +67,7 @@ Spark でのストリーム処理を調べるには、Spark Structured Streaming
 
 ## <a name="delete-azure-resources"></a>Azure リソースを削除する
 
-> <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: If you intend to complete other exercises that use Azure Synapse Analytics, you can skip this section. Otherwise, follow the steps below to avoid unnecessary Azure costs.
+>                 **注**: Azure Synapse Analytics が使用されている他の演習を完了しようとしている場合、このセクションはスキップできます。 それ以外の場合は、不要な Azure コストが発生しないよう、次の手順に従ってください。
 
 1. 変更を保存しないで Synapse Studio のブラウザー タブを閉じて、Azure portal に戻ります。
 1. Azure portal の **[ホーム]** ページで、**[リソース グループ]** を選択します。
