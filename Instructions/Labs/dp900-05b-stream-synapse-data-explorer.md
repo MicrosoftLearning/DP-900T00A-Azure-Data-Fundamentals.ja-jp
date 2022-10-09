@@ -20,7 +20,7 @@ lab:
 
 1. Azure portal ([https://portal.azure/com](https://portal.azure.com?azure-portal=true)) を開き、ご利用の Azure サブスクリプションに関連付けられている資格情報を使用してサインインします。
 
-    > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Ensure you are working in the directory containing your subscription - indicated at the top right under your user ID. If not, select the user icon and switch directory.
+    >                 **注**: ご自分のサブスクリプションが含まれているディレクトリで作業していることを確認してください。右上のユーザー ID の下に表示されています。 表示されない場合は、ユーザー アイコンを選択してディレクトリを切り替えてください。
 
 1. Azure portal の **[ホーム]** ページで、**[&#65291; リソースの作成]** アイコンを使用して、新しいリソースを作成します。
 1. *Azure Synapse Analytics* を検索し、次の設定を使用して、新しい **Azure Synapse Analytics** リソースを作成します。
@@ -33,7 +33,7 @@ lab:
         - **アカウント名**: *一意の名前 (例: "datalake<your_name>") の新しいアカウントを作成します*。
         - **アカウント名**: *一意の名前 (例: "fs<your_name>") の新しいファイル システムを作成します*。
 
-    > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: A Synapse Analytics workspace requires two resource groups in your Azure subscription; one for resources you explicitly create, and another for managed resources used by the service. It also requires a Data Lake storage account in which to store data, scripts, and other artifacts.
+    >                 **注**: Synapse Analytics ワークスペースには、Azure サブスクリプションに 2 つのリソース グループが必要です。1 つは明示的に作成したリソース用で、もう 1 つはサービスによって使用される管理対象リソース用です。 また、データ、スクリプト、その他のアーティファクトを格納するための Data Lake ストレージ アカウントも必要です。
 
 1. これらの詳細を入力したら、**[確認と作成]** を選択し、**[作成]** を選択して、ワークスペースを作成します。
 1. ワークスペースが作成されるまで待ちます。これには 5 分程度かかる場合があります。
@@ -72,7 +72,7 @@ lab:
     - **データ形式**: CSV
     - **最初のレコードを無視する**: 選択済み
     - **マッピング**: devices_mapping
-1. Ensure the column data types have been correctly identified as <bpt id="p1">*</bpt>Time (datetime)<ept id="p1">*</ept>, <bpt id="p2">*</bpt>Device (string)<ept id="p2">*</ept>, and <bpt id="p3">*</bpt>Value (long)<ept id="p3">*</ept>). Then select <bpt id="p1">**</bpt>Next: Start Ingestion<ept id="p1">**</ept>.
+1. 列のデータ型が、*Time (datetime)*、*Device (string)*、および *Value (long)* として正しく識別されていることを確認します。 次に、**[次へ: インジェストを開始する]** を選択してインジェストを開始します。
 1. インジェストが完了したら、**[閉じる]** を選択します。
 1. Azure Data Explorer の **[クエリ]** タブで、**iot-data** データベースが選択されていることを確認し、クエリ ペインで次のクエリを入力します。
 
@@ -90,13 +90,13 @@ lab:
 
     結果がこれと一致する場合は、ファイルのデータから **devices** テーブルが正常に作成されています。
 
-    > <bpt id="p1">**</bpt>Tip<ept id="p1">**</ept>: In this example, you imported a very small amount of batch data from a file, which is fine for the purposes of this exercise. In reality, you can use Data Explorer to analyze much larger volumes of data; and since you enabled stream ingestion, you could also have configured Data Explorer to ingest data into the table from a streaming source such as Azure Event Hubs.
+    >                 **ヒント**: この例では、ごく少量のバッチ データをファイルからインポートしました。この演習の目的と照らして問題ありません。 実際には、Data Explorer を使用して大量のデータを分析できます。また、ストリーム インジェストを有効にしたため、Azure Event Hubs などのストリーミング ソースからテーブルにデータを取り込むように Data Explorer を構成することもできます。
 
 ## <a name="use-kusto-query-language-to-query-the-table-in-synapse-studio"></a>Kusto クエリ言語を使用して Synapse Studio のテーブルに対してクエリを実行する
 
 1. [Azure Data Exporer] ブラウザー タブを閉じ、Synapse Studio が含まれているタブに戻ります。
-1. On the <bpt id="p1">**</bpt>Data<ept id="p1">**</ept> page, expand the <bpt id="p2">**</bpt>iot-data<ept id="p2">**</ept> database and its <bpt id="p3">**</bpt>Tables<ept id="p3">**</ept> folder. Then in the <bpt id="p1">**</bpt>...<ept id="p1">**</ept> menu for the <bpt id="p2">**</bpt>devices<ept id="p2">**</ept> table, select <bpt id="p3">**</bpt>New KQL Script<ept id="p3">**</ept><ph id="ph1"> &gt; </ph><bpt id="p4">**</bpt>Take 1000 rows<ept id="p4">**</ept>.
-1. Review the generated query and its results. The query should contain the following code:
+1. **[データ]** ページで、**iot-data** データベースと **[テーブル]** フォルダーを展開します。 次に、**devices** テーブルの **[...]** メニューで、**[新しい KQL スクリプト]** > **[1000 行を取得]** を選択します。
+1. 生成されたクエリとその結果を確認します。 クエリには、次のコードが含まれている必要があります。
 
     ```kusto
     devices
@@ -112,7 +112,7 @@ lab:
     | where Device == 'Dev1'
     ```
 
-1. Select <bpt id="p1">**</bpt>&amp;#9655; Run<ept id="p1">**</ept> to run the query. Then review the results, which should contain only the rows for the <bpt id="p1">*</bpt>Dev1<ept id="p1">*</ept> device.
+1. **[&#9655; 実行]** を選択して、クエリを実行します。 次に、結果を確認します。これには、*Dev1* デバイスの行のみが含まれている必要があります。
 
 1. 次のように、クエリを変更します。
 

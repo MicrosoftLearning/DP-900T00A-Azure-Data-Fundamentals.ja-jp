@@ -18,7 +18,7 @@ lab:
 
 1. [Azure portal](https://portal.azure.com) でご自分の Azure サブスクリプション資格情報を使用して、Azure サブスクリプションにサインインします。
 
-1. Use the <bpt id="p1">**</bpt>[<ph id="ph1">\&gt;</ph>_]<ept id="p1">**</ept> button to the right of the search bar at the top of the page to create a new Cloud Shell in the Azure portal, selecting a <bpt id="p2">***</bpt>Bash<ept id="p2">***</ept> environment and creating storage if prompted. The cloud shell provides a command line interface in a pane at the bottom of the Azure portal, as shown here:
+1. ページ上部の検索バーの右側にある **[\>_]** ボタンを使用して、Azure portal で新しい Cloud Shell を作成し、メッセージが表示されたら ***Bash*** 環境を選択してストレージを作成します。 次に示すように、Azure portal の下部にあるペインに、Cloud Shell のコマンド ライン インターフェイスが表示されます。
 
     ![Azure portal と Cloud Shell のペイン](./images/cloud-shell.png)
 
@@ -50,7 +50,7 @@ lab:
 
 ## <a name="explore-the-azure-resources"></a>Azure リソースを調べる
 
-1. In the <bpt id="p1">[</bpt>Azure portal<ept id="p1">](https://portal.azure.com?azure-portal=true)</ept>, on the home page, select <bpt id="p2">**</bpt>Resource groups<ept id="p2">**</ept> to see the resource groups in your subscription. This should include the <bpt id="p1">**</bpt>learn*xxxxxxxxxxxxxxxxx...<ept id="p1">**</ept>* resource group identified by the setup script.
+1. [Azure portal](https://portal.azure.com?azure-portal=true) のホーム ページで **[リソース グループ]** を選び、サブスクリプション内のリソース グループを表示します。 これには、セットアップ スクリプトによって示されている **learn*xxxxxxxxxxxxxxxxx...** * リソース グループが含まれているはずです。
 2. **learn*xxxxxxxxxxxxxxxxx...** * リソース グループを選択し、それに含まれるリソースを確認します。次のものが含まれている必要があります。
     - 受信デバイス データを受け取るために使用される **iothub*xxxxxxxxxxxxx*** という名前の *IoT ハブ*。
     - データ処理の結果が書き込まれる **store*xxxxxxxxxxxx*** という名前の "ストレージ アカウント"。**
@@ -61,7 +61,7 @@ lab:
     > **注**: Learn サンドボックスを使用している場合は、リソース グループに **cloudshell*xxxxxxxx*** という名前の第 2 の "*ストレージ アカウント*" が含まれる場合があります。これは、セットアップ スクリプトの実行に使用した Azure Cloud Shell 用のデータを格納するために使われます。
 
 3. **stream*xxxxxxxxxxxxx*** Stream Analytics ジョブを選び、その **[概要]** ページの情報を見ます。次の詳細に注意してください。
-    - The job has one <bpt id="p1">*</bpt>input<ept id="p1">*</ept> named <bpt id="p2">**</bpt>iotinput<ept id="p2">**</ept>, and one <bpt id="p3">*</bpt>output<ept id="p3">*</ept> named <bpt id="p4">**</bpt>bloboutput<ept id="p4">**</ept>. These reference the IoT Hub and Storage account created by the setup script.
+    - ジョブには、**iotinput** という名前の 1 つの "入力" と、**bloboutput** という名前の 1 つの "出力" があります。**** これらでは、セットアップ スクリプトによって作成された IoT ハブとストレージ アカウントが参照されています。
     - ジョブの "クエリ" では、**iotinput** 入力からデータが読み取られ、10 秒ごとに処理されたメッセージの数をカウントして集計されて、結果が **bloboutput** 出力に書き込まれます。**
 
 ## <a name="use-the-resources-to-analyze-streaming-data"></a>リソースを使用してストリーミング データを分析する
