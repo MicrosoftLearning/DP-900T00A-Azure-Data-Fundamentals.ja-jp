@@ -20,7 +20,7 @@ lab:
 
 1. Azure portal で、左上隅にある **[&#65291; リソースの作成]** を選択し、 *[Azure Database for PostgreSQL]* を検索します。 次に、表示される **[Azure Database for PostgreSQL]** ページで、**[作成]** を選択します。
 
-1. 使用可能な Azure Database for PostgreSQL のオプションを確認し、 **[フレキシブル サーバー]** タイルで **[作成]** を選択します。
+1. 使用可能な Azure Database for PostgreSQLオプションを確認し、 **[Azure Database for PostgreSQL]** タイルで **[フレキシブル サーバー (推奨)** ]、 **[作成]** の順に選択します。
 
     ![Azure Database for PostgreSQL デプロイ オプションのスクリーンショット](images/postgresql-options.png)
 
