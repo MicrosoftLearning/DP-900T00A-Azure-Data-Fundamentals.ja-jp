@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: 3982174f9c468643b111a2ee341c3469ade7814d
-ms.sourcegitcommit: db4ef648071dc89dbe45344cbe3bed174e7f8652
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 08/25/2022
-ms.locfileid: "147688688"
----
 # <a name="microsoft-azure-data-fundamentals"></a>Microsoft Azure のデータの基礎
 
 このリポジトリには、Microsoft のコース [DP-900 *Microsoft Azure のデータの基礎*](https://docs.microsoft.com/en-us/learn/certifications/courses/dp-900t00) 用のハンズオン ラボ演習と、[マイペースで進められる Microsoft Learn のモジュール](https://docs.microsoft.com/en-us/users/23110622/collections/0kjyh8rn5gdrjj/)が含まれています。 ラボは学習教材に沿って設計されており、教材で説明されているテクノロジを利用して学習できます。 
