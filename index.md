@@ -8,7 +8,7 @@ layout: home
 
 これらの実践的な演習は、[Microsoft Learn](https://docs.microsoft.com/training/) のトレーニング コンテンツをサポートするように設計されています。
 
-これらの演習を完了するには、管理権限を持つ Microsoft Azure サブスクリプションが必要です。 [https://azure.microsoft.com](https://azure.microsoft.com) で無料試用版にサインアップできます。
+これらの演習を完了するには、管理用のアクセス許可が付与される Microsoft Azure サブスクリプションが必要です。 [https://azure.microsoft.com](https://azure.microsoft.com) で無料試用版にサインアップできます。
 
 {% assign labs = site.pages | where_exp:"page", "page.url contains '/Instructions/Labs'" %}
 | 演習 |
