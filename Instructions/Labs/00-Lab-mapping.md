@@ -1,10 +1,10 @@
-# <a name="dp-900-trainer-lab-mapping"></a>DP-900 練習ラボの位置づけ
+# DP-900 練習ラボの位置づけ
 
 本コース DP-900: Microsoft Azure のデータの基礎には、講師による指導付きトレーニング用に指定された一連のラボがあります。 
 
 > 注: 講師は、関連する Learn ラーニング パス (https://docs.microsoft.com/users/23110622/collections/0kjyh8rn5gdrjj) の演習を使用して、学生に好きな時間に 1 つ以上のラボを完了するように指示することもできます。 
 
-## <a name="dp-900-module-mapping-to-labs"></a>DP-900 モジュールとラボのマッピング
+## DP-900 モジュールとラボのマッピング
 
 | モジュール | ラボ | マークダウン ファイル |
 | --- | --- | --- |
