@@ -4,17 +4,17 @@ lab:
   module: Explore relational data in Azure
 ---
 
-# <a name="explore-azure-database-for-mysql"></a>Azure Database for MySQL について調べる
+# Azure Database for MySQL について調べる
 
 この演習では、Azure サブスクリプションで Azure Database for MySQL リソースをプロビジョニングします。
 
 このラボは完了するまで、約 **5** 分かかります。
 
-## <a name="before-you-start"></a>開始する前に
+## 開始する前に
 
 管理レベルのアクセス権を持つ [Azure サブスクリプション](https://azure.microsoft.com/free)が必要です。
 
-## <a name="provision-an-azure-database-for-mysql-resource"></a>Azure Database for MySQL リソースのプロビジョニング
+## Azure Database for MySQL リソースのプロビジョニング
 
 この演習では、Azure Database for MySQL リソースをプロビジョニングします。
 

@@ -4,17 +4,17 @@ lab:
   module: Explore relational data in Azure
 ---
 
-# <a name="explore-azure-database-for-postgresql"></a>Azure Database for PostgreSQL について調べる
+# Azure Database for PostgreSQL について調べる
 
 この演習では、Azure サブスクリプションで Azure Database for PostgreSQL リソースをプロビジョニングします。
 
 このラボは完了するまで、約 **5** 分かかります。
 
-## <a name="before-you-start"></a>開始する前に
+## 開始する前に
 
 管理レベルのアクセス権を持つ [Azure サブスクリプション](https://azure.microsoft.com/free)が必要です。
 
-## <a name="provision-an-azure-database-for-postgresql-resource"></a>Azure Database for PostgreSQL リソースのプロビジョニング
+## Azure Database for PostgreSQL リソースのプロビジョニング
 
 この演習では、Azure Database for PostgreSQL リソースをプロビジョニングします。
 
