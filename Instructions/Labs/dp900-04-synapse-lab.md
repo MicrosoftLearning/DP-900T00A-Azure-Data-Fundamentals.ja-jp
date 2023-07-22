@@ -4,23 +4,23 @@ lab:
   module: Explore fundamentals of large-scale data warehousing
 ---
 
-# <a name="explore-data-analytics-in-azure-with-azure-synapse-analytics"></a>Azure Synapse Analytics を使用して Azure のデータ分析を調べる
+# Azure Synapse Analytics を使用して Azure のデータ分析を調べる
 
 この演習では、自分の Azure サブスクリプションで Azure Synapse Analytics ワークスペースをプロビジョニングし、それを使用してデータの取り込みとクエリを実行します。
 
 このラボは完了するまで、約 **30** 分かかります。
 
-## <a name="before-you-start"></a>開始する前に
+## 開始する前に
 
 管理レベルのアクセス権を持つ [Azure サブスクリプション](https://azure.microsoft.com/free)が必要です。
 
-## <a name="provision-an-azure-synapse-analytics-workspace"></a>Azure Synapse Analytics ワークスペースをプロビジョニングする
+## Azure Synapse Analytics ワークスペースをプロビジョニングする
 
 Azure Synapse Analytics を使用するには、Azure サブスクリプションで Azure Synapse Analytics ワークスペース リソースをプロビジョニングする必要があります。
 
 1. Azure portal ([https://portal.azure.com](https://portal.azure.com?azure-portal=true)) を開き、ご利用の Azure サブスクリプションに関連付けられている資格情報を使用してサインインします。
 
-    >                 **ヒント**: ご自分のサブスクリプションが含まれているディレクトリで作業していることを確認してください。右上のユーザー ID の下に表示されています。 そうでない場合は、ユーザー アイコンを選択してディレクトリを切り替えます。
+    >                 **ヒント**: ご自分のサブスクリプションが含まれているディレクトリで作業していることを確認してください。右上のユーザー ID の下に表示されています。 表示されない場合は、ユーザー アイコンを選択してディレクトリを切り替えてください。
 
 2. Azure portal の **[ホーム]** ページで、**[&#65291; リソースの作成]** アイコンを使用して、新しいリソースを作成します。
 3. *Azure Synapse Analytics* を検索し、次の設定を使用して、新しい **Azure Synapse Analytics** リソースを作成します。
@@ -53,7 +53,7 @@ Azure Synapse Analytics を使用するには、Azure サブスクリプショ�
 
     ![リソースの管理とデータ分析タスクの実行用に展開した Synapse Studio メニューを示す画像](images/synapse-studio.png)
 
-## <a name="ingest-data"></a>データの取り込み
+## データの取り込み
 
 Azure Synapse Analytics を使用して実行できる主なタスクの 1 つは、さまざまなソースから分析用にデータをワークスペースに転送 (必要に応じて変換) する*パイプライン*を定義することです。
 
@@ -61,7 +61,7 @@ Azure Synapse Analytics を使用して実行できる主なタスクの 1 つ�
 2. データ コピー ツールの **[プロパティ]** ステップで、**[組み込みコピー タスク]** と **[1 回実行する]** が選択されていることを確認し、**[次へ >]** をクリックします。
 3. **[ソース]** ステップの **[データセット]** サブステップで、次の設定を選択します。
     - **[ソースの種類]**: すべて
-    - **[接続]** : "新しい接続を作成し、表示される **[新しい接続]** ペインの **[ファイル]** タブで **[HTTP]** を選びます。続けて、次の設定を使ってデータ ファイルへの接続を作成します。"**
+    - **[接続]** : "新しい接続を作成し、表示される **[新しい接続]** ペインの **[汎用プロトコル]** タブで **[HTTP]** を選びます。続けて、次の設定を使ってデータ ファイルへの接続を作成します。"**
         - **名前**: AdventureWorks 製品
         - **説明**: HTTP 経由の製品一覧
         - **統合ランタイム経由で接続する**: AutoResolveIntegrationRuntime
@@ -112,7 +112,7 @@ Azure Synapse Analytics を使用して実行できる主なタスクの 1 つ�
 
     ![Synapse ワークスペースのファイル ストレージで Azure Data Lake Storage Gen 2 階層が展開された Synapse Studio を示す画像](images/synapse-storage.png)
 
-## <a name="use-a-sql-pool-to-analyze-data"></a>SQL プールを使用してデータを分析する
+## SQL プールを使用してデータを分析する
 
 ワークスペースにデータを取り込んだので、Synapse Analytics を使用してクエリと分析を行うことができます。 データのクエリを実行する最も一般的な方法の 1 つは SQL を使用することです。Synapse Analytics では、*SQL プール*を使用して SQL コードを実行できます。
 
@@ -210,7 +210,7 @@ Azure Synapse Analytics を使用して実行できる主なタスクの 1 つ�
 
     ![製品数グラフ ビューを示す画像](images/column-chart.png)
 
-## <a name="use-a-spark-pool-to-analyze-data"></a>Spark プールを使用してデータを分析する
+## Spark プールを使用してデータを分析する
 
 SQL は構造化データセットでクエリを実行するための共通言語ですが、多くのデータ アナリストは、Python など、分析用のデータの探索と準備に役立つ言語を見つけています。 Azure Synapse Analytics では、*Spark プール*で Python (およびその他の) コードを実行できます。これは Apache Spark に基づく分散データ処理エンジンを使用します。
 
@@ -291,7 +291,7 @@ SQL は構造化データセットでクエリを実行するための共通言�
 
 15. **[ノートブック 1]** ペインを閉じて、変更を破棄します。
 
-## <a name="delete-azure-resources"></a>Azure リソースを削除する
+## Azure リソースを削除する
 
 Azure Synapse Analytics を調べ終わったら、不要な Azure コストを避けるために、作成したリソースを削除する必要があります。
 

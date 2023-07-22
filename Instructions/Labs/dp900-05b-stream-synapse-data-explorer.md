@@ -4,17 +4,19 @@ lab:
   module: Explore fundamentals of real-time analytics
 ---
 
-# <a name="explore-azure-synapse-data-explorer"></a>Azure Synapse Data Explorer について調べる
+# Azure Synapse Data Explorer について調べる
+
+> **注**: 製品の変更により、このラボの「**データベースの作成とデータの取り込み**」のセクションにいくつかの既知の問題があります。 現在、これらの問題への対処に取り組んでいます。
 
 この演習では、Azure Synapse Data Explorer を使用して時系列データを分析します。
 
 このラボは完了するまで、約 **25** 分かかります。
 
-## <a name="before-you-start"></a>開始する前に
+## 開始する前に
 
 管理レベルのアクセス権を持つ [Azure サブスクリプション](https://azure.microsoft.com/free)が必要です。
 
-## <a name="provision-a-synapse-analytics-workspace"></a>Synapse Analytics ワークスペースをプロビジョニングする
+## Synapse Analytics ワークスペースをプロビジョニングする
 
 > **ヒント**: 前の演習の Azure Synapse ワークスペースがまだある場合は、このセクションをスキップし、「 **[Data Explorer プールの作成](#create-a-data-explorer-pool)** 」に進んでください。
 
@@ -39,9 +41,9 @@ lab:
 1. ワークスペースが作成されるまで待ちます。これには 5 分程度かかる場合があります。
 1. デプロイが完了したら、作成されたリソース グループにアクセスして、Synapse Analytics ワークスペースと Data Lake ストレージ アカウントが含まれていることを確認します。
 1. Synapse ワークスペースを選択し、**[概要]** ページの **[Synapse Studio を開く]** カードで、**[開く]** を選択し、新しいブラウザー タブで Synapse Studio を開きます。Synapse Studio は、Synapse Analytics ワークスペースの操作に使用できる Web ベースのインターフェイスです。
-1. Synapse Studio の左の **&rsaquo;&rsaquo;** アイコンを使用してメニューを展開します。これにより、リソースの管理とデータ分析タスクの実行に使用する Synapse Studio 内のさまざまなページが表示されます
+1. Synapse Studio の左の **&rsaquo;&rsaquo;** アイコンを使用してメニューを展開します。これにより、リソースの管理とデータ分析タスクの実行に使用する Synapse Studio 内のさまざまなページが表示されます。
 
-## <a name="create-a-data-explorer-pool"></a>データエクスプローラープールを作成する
+## データエクスプローラープールを作成する
 
 1. Synapse Studio で、**[管理]** ページを選択します。
 1. **[Data Explorer プール]** タブを選択してから、 **[&#65291; 新規]** アイコンを使用して、次の設定で新しいプールを作成します。
@@ -51,7 +53,7 @@ lab:
 1. **[次へ: 詳細設定 >]** を選択し、 **[ストリーミング インジェスト]** 設定を有効にします。これにより、データ エクスプローラーで Azure Event Hubs などのストリーミング ソースから新しいデータを取り込むことができます。
 1. **[確認と作成]** を選択して Data Explorer プールを作成し、デプロイされるまで待機します (15 分以上かかる場合があります。状態は "作成" から "オンライン" に変わります)。****
 
-## <a name="create-a-database-and-ingest-data"></a>データベースの作成とデータの取り込み
+## データベースの作成とデータの取り込み
 
 1. Synapse Studio で、**[データ]** ページを選びます。
 1. **[ワークスペース]** タブが選択されていることを確認し、必要に応じて、ページの左上にある **&#8635;** アイコンを選択して、**Data Explorer データベース**が表示されるようにビューを更新します。
@@ -92,7 +94,7 @@ lab:
 
     >                 **ヒント**: この例では、ごく少量のバッチ データをファイルからインポートしました。この演習の目的と照らして問題ありません。 実際には、Data Explorer を使用して大量のデータを分析できます。また、ストリーム インジェストを有効にしたため、Azure Event Hubs などのストリーミング ソースからテーブルにデータを取り込むように Data Explorer を構成することもできます。
 
-## <a name="use-kusto-query-language-to-query-the-table-in-synapse-studio"></a>Kusto クエリ言語を使用して Synapse Studio のテーブルに対してクエリを実行する
+## Kusto クエリ言語を使用して Synapse Studio のテーブルに対してクエリを実行する
 
 1. [Azure Data Exporer] ブラウザー タブを閉じ、Synapse Studio が含まれているタブに戻ります。
 1. **[データ]** ページで、**iot-data** データベースと **[テーブル]** フォルダーを展開します。 次に、**devices** テーブルの **[...]** メニューで、**[新しい KQL スクリプト]** > **[1000 行を取得]** を選択します。
@@ -137,7 +139,7 @@ lab:
 
 1. [KQL クエリ] タブを閉じて、変更を破棄します。
 
-## <a name="delete-azure-resources"></a>Azure リソースを削除する
+## Azure リソースを削除する
 
 Azure Synapse Analytics の探索が終了したので、不要な Azure コストを避けるために、作成したリソースを削除する必要があります。
 

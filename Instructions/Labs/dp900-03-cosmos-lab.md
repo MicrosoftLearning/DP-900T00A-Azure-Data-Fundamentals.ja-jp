@@ -3,17 +3,17 @@ lab:
   title: Azure Cosmos DB を調べる
   module: Explore fundamentals of Azure Cosmos DB
 ---
-# <a name="explore-azure-cosmos-db"></a>Azure Cosmos DB を調べる
+# Azure Cosmos DB を調べる
 
 この演習では、自分の Azure サブスクリプションで Azure Cosmos DB データベースをプロビジョニングし、それを使用して非リレーショナル データを格納するさまざまな方法を検討します。
 
 このラボは完了するまで、約 **15** 分かかります。
 
-## <a name="before-you-start"></a>開始する前に
+## 開始する前に
 
 管理レベルのアクセス権を持つ [Azure サブスクリプション](https://azure.microsoft.com/free)が必要です。
 
-## <a name="create-a-cosmos-db-account"></a>Cosmos DB アカウントを作成する
+## Cosmos DB アカウントを作成する
 
 Cosmos DB を使うには、Azure サブスクリプションで Cosmos DB アカウントをプロビジョニングする必要があります。 この演習では、Azure Cosmos DB for NoSQL を使う Cosmos DB のアカウントをプロビジョニングします。
 
@@ -30,7 +30,7 @@ Cosmos DB を使うには、Azure サブスクリプションで Cosmos DB ア�
 1. 構成を確認したら、**[作成]** を選びます。
 1. デプロイが完了するまで待ちます。 次に、デプロイされたリソースに移動します。
 
-## <a name="create-a-sample-database"></a>サンプル データベースの作成
+## サンプル データベースの作成
 
               "この手順全体を通して、ポータルに表示されるヒントをすべて閉じます"。**
 
@@ -39,23 +39,27 @@ Cosmos DB を使うには、Azure サブスクリプションで Cosmos DB ア�
 1. **[新しいコンテナー]** タブで、サンプル データベースの事前に設定された値を確認して、**[OK]** を選びます。
 1. **SampleDB** データベースとその **SampleContainer** コンテナーが作成されるまで、画面の下部にあるパネルで状態を観察します (1 分ほどかかる場合があります)。
 
-## <a name="view-and-create-items"></a>項目の表示と作成
+## 項目の表示と作成
 
-1. [Data Explorer] ページで **SampleDB** データベースと **SampleContainer** コンテナーを展開し、**[項目]** を選んでコンテナー内の項目の一覧を表示します。 項目は住所を表し、それぞれに一意の ID と他のプロパティがあります。
+1. [Data Explorer] ページで **SampleDB** データベースと **SampleContainer** コンテナーを展開し、**[項目]** を選んでコンテナー内の項目の一覧を表示します。 項目は製品データを表し、それぞれに一意の ID と他のプロパティがあります。
 1. 一覧内の項目を選ぶと、項目データの JSON 表現が表示されます。
 1. ページの上部にある **[新しい項目]** を選び、新しい空白の項目を作成します。
 1. 新しい項目の JSON を以下のように変更し、**[保存]** を選びます。
 
     ```json
     {
-        "address": "1 Any St.",
-        "id": "123456789"
+        "name": "Road Helmet,45",
+        "id": "123456789",
+        "categoryID": "123456789",
+        "SKU": "AB-1234-56",
+        "description": "The product called \"Road Helmet,45\" ",
+        "price": 48.74
     }
     ```
 
 1. 新しい項目を保存すると、追加のメタデータ プロパティが自動的に追加されることに注意してください。
 
-## <a name="query-the-database"></a>データベースのクエリを実行する
+## データベースのクエリを実行する
 
 1. **[Data Explorer]** ページで、**[新しい SQL クエリ]** アイコンを選びます。
 1. SQL クエリ エディターで既定のクエリ (`SELECT * FROM c`) を確認し、`SELECT * FROM c` ボタンを使って実行します。
@@ -63,12 +67,12 @@ Cosmos DB を使うには、Azure サブスクリプションで Cosmos DB ア�
 1. 次のように、クエリを変更します。
 
     ```sql
-    SELECT c.id, c.address
+    SELECT *
     FROM c
-    WHERE CONTAINS(c.address, "Any St.")
+    WHERE CONTAINS(c.name,"Helmet")
     ```
 
-1. **[クエリの実行]** ボタンを使って、修正したクエリを実行し、結果を確認します。これには、**address** フィールドに "Any St." というテキストが含まれる項目の JSON エンティティが含まれます。
+1. **[クエリの実行]** ボタンを使って、修正したクエリを実行し、結果を確認します。これには、**name** フィールドに "Helmet" というテキストが含まれる項目の JSON エンティティが含まれます。
 1. SQL クエリ エディターを閉じ、変更内容を破棄します。
 
     ここでは、Azure portal の Data Explorer インターフェイスを使って、Cosmos DB データベースで JSON エンティティを作成し、クエリを実行する方法について確認しました。 実際のシナリオでは、アプリケーション開発者は、数多くあるプログラミング言語固有のソフトウェア開発キット (SDK) のいずれかを使って NoSQL API を呼び出し、データベース内のデータを操作します。
