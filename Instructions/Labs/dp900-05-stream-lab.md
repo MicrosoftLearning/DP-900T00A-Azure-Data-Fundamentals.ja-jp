@@ -4,17 +4,17 @@ lab:
   module: Explore fundamentals of real-time analytics
 ---
 
-# <a name="explore-azure-stream-analytics"></a>Azure Stream Analytics を調べる
+# Azure Stream Analytics を調べる
 
 この演習では、Azure サブスクリプションに Azure Stream Analytics ジョブをプロビジョニングし、それを使用してリアルタイム データのストリームを処理します。
 
 このラボは完了するまで、約 **15** 分かかります。
 
-## <a name="before-you-start"></a>開始する前に
+## 開始する前に
 
 管理レベルのアクセス権を持つ [Azure サブスクリプション](https://azure.microsoft.com/free)が必要です。
 
-## <a name="create-azure-resources"></a>Azure リソースを作成する
+## Azure リソースを作成する
 
 1. [Azure portal](https://portal.azure.com) でご自分の Azure サブスクリプション資格情報を使用して、Azure サブスクリプションにサインインします。
 
@@ -40,6 +40,8 @@ lab:
     bash setup.sh
     ```
 
+    > 今後の変更と試験的な機能に関する警告メッセージは無視します。
+
     実行されたスクリプトによって次のアクションが実行されるのを待ちます。
 
     1. リソースの作成に必要な Azure CLI 拡張機能がインストールされます ("試験段階の拡張機能に関する警告は無視してかまいません")。**
@@ -48,7 +50,7 @@ lab:
     1. 処理されたデータの格納に使用される "Azure ストレージ アカウント" が作成されます。**
     1. 受信したデバイス データをリアルタイムで処理し、その結果をストレージ アカウントに書き込む "Azure Stream Analytics" ジョブが作成されます。**
 
-## <a name="explore-the-azure-resources"></a>Azure リソースを調べる
+## Azure リソースを調べる
 
 1. [Azure portal](https://portal.azure.com?azure-portal=true) のホーム ページで **[リソース グループ]** を選び、サブスクリプション内のリソース グループを表示します。 これには、セットアップ スクリプトによって示されている **learn*xxxxxxxxxxxxxxxxx...** * リソース グループが含まれているはずです。
 2. **learn*xxxxxxxxxxxxxxxxx...** * リソース グループを選択し、それに含まれるリソースを確認します。次のものが含まれている必要があります。
@@ -58,11 +60,11 @@ lab:
 
     これら 3 つのリソースすべてが一覧に表示されていない場合は、表示されるまで **[&#8635; 最新の情報に更新]** ボタンをクリックします。
 
- 3. **stream*xxxxxxxxxxxxx*** Stream Analytics ジョブを選び、その **[概要]** ページの情報を見ます。次の詳細に注意してください。
+3. **stream*xxxxxxxxxxxxx*** Stream Analytics ジョブを選び、その **[概要]** ページの情報を見ます。次の詳細に注意してください。
     - ジョブには、**iotinput** という名前の 1 つの "入力" と、**bloboutput** という名前の 1 つの "出力" があります。**** これらでは、セットアップ スクリプトによって作成された IoT ハブとストレージ アカウントが参照されています。
     - ジョブの "クエリ" では、**iotinput** 入力からデータが読み取られ、10 秒ごとに処理されたメッセージの数をカウントして集計されて、結果が **bloboutput** 出力に書き込まれます。**
 
-## <a name="use-the-resources-to-analyze-streaming-data"></a>リソースを使用してストリーミング データを分析する
+## リソースを使用してストリーミング データを分析する
 
 1. Stream Analytics ジョブの **[概要]** ページの先頭にある **[&#9655; 開始]** ボタンを選んでから、**[ジョブの開始]** ペインで **[開始]** を選んでジョブを開始します。
 2. ストリーミング ジョブが正常に開始されたことを示す通知を待ちます。
