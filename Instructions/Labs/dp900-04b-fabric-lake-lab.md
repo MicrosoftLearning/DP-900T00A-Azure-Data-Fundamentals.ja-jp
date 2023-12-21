@@ -10,7 +10,7 @@ lab:
 
 このラボは完了するまで、約 **25** 分かかります。
 
-> **注**: この演習を完了するには、Microsoft Fabric ライセンスが必要です。 無料の Fabric 試用版ライセンスを有効にする方法の詳細については、[Fabric の概要](https://learn.microsoft.com/fabric/get-started/fabric-trial)に関するページを参照してください。 これを行うには、Microsoft の "*学校*" または "*職場*" アカウントが必要です。 お持ちでない場合は、[Microsoft Office 365 E3 以降の試用版にサインアップ](https://www.microsoft.com/microsoft-365/business/compare-more-office-365-for-business-plans)できます。
+> **注**: この演習を完了するには、Microsoft Fabric ライセンスが必要です。 無料の Fabric 試用版ライセンスを有効にする方法の詳細については、[Fabric の概要](https://learn.microsoft.com/fabric/get-started/fabric-trial)に関するページを参照してください。 これを行うには、Microsoft の "学校" または "職場" アカウントが必要です。** ** お持ちでない場合は、[Microsoft Office 365 E3 以降の試用版にサインアップ](https://www.microsoft.com/microsoft-365/business/compare-more-office-365-for-business-plans)できます。
 
 ## ワークスペースの作成
 
@@ -113,7 +113,7 @@ Microsoft Fabric のレイクハウスでデータ モデル内のすべての�
     1. **[データ]** ペインで **dimension_stock_item** テーブルを展開し、 **[Brand]** フィールドと **[StockItemKey]** フィールドを選択します。
     1. **[視覚化]** ペインで、**積み上げ横棒グラフ**視覚化 (一番目に表示されている) を選択します。 次に、**Y 軸** に **[Brand]** フィールドを含め、**X 軸** の集計を **[Count]** に変更して、 **[Count of StockItemKey]** フィールドが確実に含まれるようにします。 最後に、レポート キャンバスの視覚化のサイズを変更して、使用可能な領域を埋めます。
 
-        ![Power BI レポートのスクリーンショット。](./images/fabric-report.png)
+        ![Power BI のレポートのスクリーンショット。](./images/fabric-report.png)
 
     > **ヒント**: **>>** アイコンを使用すると、レポートを見やすくするためにレポート デザイナー ペインを非表示にできます。
 
@@ -126,5 +126,5 @@ Microsoft Fabric のレイクハウスでデータ モデル内のすべての�
 Microsoft Fabric の探索が終了したら、この演習用に作成したワークスペースを削除できます。
 
 1. 左側のバーで、ワークスペースのアイコンを選択して、それに含まれるすべての項目を表示します。
-2. ツール バーの **[...]** メニューで、 **[ワークスペースの設定]** を選択します。
+2. ツール バーの **[...]** メニューで、 **[ワークスペースの設定]** を選択してください。
 3. **[その他]** セクションで、 **[このワークスペースの削除]** を選択してください。
