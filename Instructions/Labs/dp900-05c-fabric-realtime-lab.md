@@ -35,9 +35,20 @@ Fabric でデータを操作する前に、Fabric 試用版を有効にしてワ
 
 2. リアルタイム分析ホーム ページで、新しい **KQL データベース**を任意の名前で作成します。
 
-    1 分ほどすると、新しい KQL レイクハウスが作成されます。
+    ![KQL DB の作成が強調表示されている RTA エディターのスクリーンショット。](./images/create-kql-db.png)
+
+   ダッシュボード画面が表示されたら、上部にある [KQL データベース] ボタンを選択します。
 
     ![新しい KQL データベースのスクリーンショット。](./images/kql-database.png)
+
+    選択後、***[新しい KQL データベース]*** ダイアログ ボックスが表示されます。ここで KQL データベースに名前を付けます。
+
+    ![新しい KQL データベース名のダイアログのスクリーンショット。](./images/name-kql-db.png)
+
+   - データベースに名前を付けます。このシナリオでは次のとおりです: `my_kql_db`
+   - ***[作成]*** をクリックします
+  
+    1 分ほどすると、新しい KQL レイクハウスが作成されます。
 
     現段階では、データベースにテーブルはありません。
 
@@ -91,7 +102,7 @@ Fabric でデータを操作する前に、Fabric 試用版を有効にしてワ
     ```kql
     // This query returns the number of taxi pickups per hour
     ['taxi-data']
-    | summarize PickupCount = count() by bin(tpep_pickup_datetime, 1h)
+    | summarize PickupCount = count() by bin(todatetime(tpep_pickup_datetime), 1h)
     ```
 
 1. **[&#9655; 実行]** ボタンを使用してクエリを実行し、結果を表示します。各時間のタクシー送迎数を示す結果が表示されるはずです。
