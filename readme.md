@@ -1,11 +1,3 @@
-#README
-
-We've turned off the ability to report issues directly on this repo and do not monitor PRs.
-
-Provide feedback here: https://aka.ms/provide-feedback
-
-Or, if you are a trainer with a microsoft.com email address, please create a ticket in AzDO.
-
 # Microsoft Azure のデータの基礎
 
 このリポジトリには、Microsoft のコース [DP-900 *Microsoft Azure のデータの基礎*](https://docs.microsoft.com/en-us/learn/certifications/courses/dp-900t00) 用のハンズオン ラボ演習と、[マイペースで進められる Microsoft Learn のモジュール](https://docs.microsoft.com/en-us/users/23110622/collections/0kjyh8rn5gdrjj/)が含まれています。 ラボは学習教材に沿って設計されており、教材で説明されているテクノロジを利用して学習できます。 

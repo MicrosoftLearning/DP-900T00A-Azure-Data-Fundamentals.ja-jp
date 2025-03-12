@@ -10,11 +10,7 @@ lab:
 
 このラボは完了するまで、約 **20** 分かかります。
 
-## 開始する前に
-
-管理レベルのアクセス権を持つ [Azure サブスクリプション](https://azure.microsoft.com/free)が必要です。
-
-### Power BI Desktop をインストールする
+## Power BI Desktop をインストールする
 
 Microsoft Power BI Desktop が Windows コンピューターにまだインストールされていない場合は、無料でダウンロードしてインストールできます。
 
@@ -86,7 +82,7 @@ Microsoft Power BI Desktop が Windows コンピューターにまだインス�
 
     ![Power BI で階層の名前を変更する方法を示すスクリーンショット。](images/rename-hierarchy.png)
 
-1. 左端にある **[データ ビュー]** タブを選択し、 **[データ]** ペインで **[customers]** テーブルを選択します。
+1. 左端にある **[テーブル ビュー]** タブを選択してから、**[データ]** ペインで **[customers]** テーブルを選択します。
 1. **[City]** 列ヘッダーを選択し、**[データ カテゴリ]** プロパティを **[市区町村]** に設定します。
 
     ![Power BI でデータ カテゴリを設定する方法を示すスクリーンショット。](images/data-category.png)
