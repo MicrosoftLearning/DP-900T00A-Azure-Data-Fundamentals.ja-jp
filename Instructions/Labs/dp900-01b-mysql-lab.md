@@ -18,7 +18,7 @@ lab:
 
 この演習では、Azure Database for MySQL リソースをプロビジョニングします。
 
-1. Azure portal で、左上隅にある **[&#65291; リソースの作成]** を選択し、 *[Azure Database for MySQL]* を検索します。 次に、表示される **[Azure Database for MySQL]** ページで、**[作成]** を選択します。
+1. Azure portal で、左上隅にある **[&#65291; リソースの作成]** を選択し、`Azure Database for MySQL` を検索します。 次に、表示される **[Azure Database for MySQL]** ページで、**[作成]** を選択します。
 
 1. 使用可能な Azure Database for MySQL のオプションを確認します。 次に、 **[リソースの種類]** で **[フレキシブル サーバー]** を選択し、 **[作成]** を選択します。
 

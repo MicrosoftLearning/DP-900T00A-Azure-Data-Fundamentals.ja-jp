@@ -23,7 +23,7 @@ Azure Synapse Analytics を使用するには、Azure サブスクリプショ�
     > **ヒント**: ご自分のサブスクリプションが含まれているディレクトリで作業していることを確認してください。右上のユーザー ID の下に表示されています。 表示されない場合は、ユーザー アイコンを選択してディレクトリを切り替えてください。
 
 2. Azure portal の **[ホーム]** ページで、**[&#65291; リソースの作成]** アイコンを使用して、新しいリソースを作成します。
-3. *Azure Synapse Analytics* を検索し、次の設定を使用して、新しい **Azure Synapse Analytics** リソースを作成します。
+3. `Azure Synapse Analytics` を検索し、次の設定を使用して、新しい **Azure Synapse Analytics** リソースを作成します。
     - **[サブスクリプション]**:"*ご自身の Azure サブスクリプション*"
         - **リソース グループ**: *適切な名前 (例: "synapse-rg") の新しいリソース グループを作成します*。
         - **管理対象リソース グループ**: *適切な名前 (例: "synapse") を入力します*。
@@ -62,8 +62,8 @@ Azure Synapse Analytics を使用して実行できる主なタスクの 1 つ�
 3. **[ソース]** ステップの **[データセット]** サブステップで、次の設定を選択します。
     - **[ソースの種類]**: すべて
     - **[接続]** : "新しい接続を作成し、表示される **[新しい接続]** ペインの **[汎用プロトコル]** タブで **[HTTP]** を選びます。続けて、次の設定を使ってデータ ファイルへの接続を作成します。"**
-        - **名前**: AdventureWorks 製品
-        - **説明**: HTTP 経由の製品一覧
+        - **名前**: `AdventureWorks Products`
+        - **説明**: `Product list via HTTP`
         - **統合ランタイム経由で接続する**: AutoResolveIntegrationRuntime
         - **ベース URL**: `https://raw.githubusercontent.com/MicrosoftLearning/DP-900T00A-Azure-Data-Fundamentals/master/Azure-Synapse/products.csv`
         - **サーバー証明書の検証**: 有効にする
@@ -120,15 +120,15 @@ Azure Synapse Analytics を使用して実行できる主なタスクの 1 つ�
 2. **[SQL スクリプト 1]** ペインが開いたら、生成された SQL コードを確認します。これは次のようになります。
 
     ```SQL
-    -- This is auto-generated code
-    SELECT
-        TOP 100 *
-    FROM
-        OPENROWSET(
-            BULK 'https://datalakexx.dfs.core.windows.net/fsxx/products.csv',
-            FORMAT = 'CSV',
-            PARSER_VERSION='2.0'
-        ) AS [result]
+   -- This is auto-generated code
+   SELECT
+       TOP 100 *
+   FROM
+       OPENROWSET(
+           BULK 'https://datalakexx.dfs.core.windows.net/fsxx/products.csv',
+           FORMAT = 'CSV',
+           PARSER_VERSION='2.0'
+       ) AS [result]
     ```
 
     このコードでは、インポートしたテキストファイルから行セットを開き、最初の 100 行のデータを取得します。
@@ -141,20 +141,20 @@ Azure Synapse Analytics を使用して実行できる主なタスクの 1 つ�
     | ProductID | ProductName | カテゴリ | ListPrice |
     | 771 | Mountain-100 Silver, 38 | マウンテン バイク | 3399.9900 |
     | 772 | Mountain-100 Silver, 42 | マウンテン バイク | 3399.9900 |
-    |     |     |     |     |
+    | ... | ... | ... | ... |
 
 5. 結果は、C1、C2、C3、C4 の名前の 4 つの列で構成されています。結果の最初の行には、データ フィールドの名前が含まれています。 この問題を解決するには、次に示すように OPENROWSET 関数に HEADER_ROW = TRUE パラメーターを追加し (*datalakexx* と *fsxx* をデータ レイク ストレージ アカウントとファイル システムの名前に置き換える)、クエリを再実行します。
 
     ```SQL
-    SELECT
-        TOP 100 *
-    FROM
-        OPENROWSET(
-            BULK 'https://datalakexx.dfs.core.windows.net/fsxx/products.csv',
-            FORMAT = 'CSV',
-            PARSER_VERSION='2.0',
-            HEADER_ROW = TRUE
-        ) AS [result]
+   SELECT
+       TOP 100 *
+   FROM
+       OPENROWSET(
+           BULK 'https://datalakexx.dfs.core.windows.net/fsxx/products.csv',
+           FORMAT = 'CSV',
+           PARSER_VERSION='2.0',
+           HEADER_ROW = TRUE
+       ) AS [result]
     ```
 
     結果は次のようになります。
@@ -163,21 +163,21 @@ Azure Synapse Analytics を使用して実行できる主なタスクの 1 つ�
     | -- | -- | -- | -- |
     | 771 | Mountain-100 Silver, 38 | マウンテン バイク | 3399.9900 |
     | 772 | Mountain-100 Silver, 42 | マウンテン バイク | 3399.9900 |
-    |     |     |     |     |
+    | ... | ... | ... | ... |
 
 6. 次のようにクエリを変更します (*datalakexx* と *fsxx* をデータ レイク ストレージ アカウントとファイル システムの名前に置き換えます)。
 
     ```SQL
-    SELECT
-        Category, COUNT(*) AS ProductCount
-    FROM
-        OPENROWSET(
-            BULK 'https://datalakexx.dfs.core.windows.net/fsxx/products.csv',
-            FORMAT = 'CSV',
-            PARSER_VERSION='2.0',
-            HEADER_ROW = TRUE
-        ) AS [result]
-    GROUP BY Category;
+   SELECT
+       Category, COUNT(*) AS ProductCount
+   FROM
+       OPENROWSET(
+           BULK 'https://datalakexx.dfs.core.windows.net/fsxx/products.csv',
+           FORMAT = 'CSV',
+           PARSER_VERSION='2.0',
+           HEADER_ROW = TRUE
+       ) AS [result]
+   GROUP BY Category;
     ```
 
 7. 次のように、変更されたクエリを実行します。これにより、各カテゴリの製品数を含む結果セットが返されます。
@@ -186,9 +186,9 @@ Azure Synapse Analytics を使用して実行できる主なタスクの 1 つ�
     | -- | -- |
     | Bib-Shorts | 3 |
     | バイク ラック | 1 |
-    |     |     |
+    | ... | ... |
 
-8. **[SQL スクリプト 1]** の **[プロパティ]** ペインで、**[名前]** を "**カテゴリ別の製品数**" に変更します。 次に、ツールバーの **[公開]** を選択して、スクリプトを保存します。
+8. **[SQL スクリプト 1]** の **[プロパティ]** ペインで、**[名前]** を `Count Products by Category` に変更します。 次に、ツールバーの **[公開]** を選択して、スクリプトを保存します。
 
 9. **[カテゴリ別の製品数]** スクリプト ペインを閉じます。
 
@@ -227,15 +227,15 @@ SQL は構造化データセットでクエリを実行するための共通言�
 6. ノートブックの最初の (および唯一の) セルのコードを確認します。次のようになります。
 
     ```Python
-    %%pyspark
-    df = spark.read.load('abfss://fsxx@datalakexx.dfs.core.windows.net/products.csv', format='csv'
-    ## If header exists uncomment line below
-    ##, header=True
-    )
-    display(df.limit(10))
+   %%pyspark
+   df = spark.read.load('abfss://fsxx@datalakexx.dfs.core.windows.net/products.csv', format='csv'
+   ## If header exists uncomment line below
+   ##, header=True
+   )
+   display(df.limit(10))
     ```
 
-7.  コード セルの左側にある **[&#9655; 実行]** アイコンを使用して実行し、結果が表示されるまで待ちます。 ノートブックで初めてセルを実行すると、Spark プールが開始されます。結果が返されるまでに 1 分ほどかかることがあります。
+7. コード セルの左側にある **[&#9655; 実行]** アイコンを使用して実行し、結果が表示されるまで待ちます。 ノートブックで初めてセルを実行すると、Spark プールが開始されます。結果が返されるまでに 1 分ほどかかることがあります。
 
     > **注**: Python カーネルがまだ使用できないことが理由でエラーが発生した場合は、もう一度セルを実行します。
 
@@ -246,17 +246,17 @@ SQL は構造化データセットでクエリを実行するための共通言�
     | ProductID | ProductName | カテゴリ | ListPrice |
     | 771 | Mountain-100 Silver, 38 | マウンテン バイク | 3399.9900 |
     | 772 | Mountain-100 Silver, 42 | マウンテン バイク | 3399.9900 |
-    |     |     |     |     |
+    | ... | ... | ... | ... |
 
 9. *,header=True* 行のコメントを解除します (products.csv のファイルには最初の行に列ヘッダーがあるため)。コードは次のようになります。
 
     ```Python
-    %%pyspark
-    df = spark.read.load('abfss://fsxx@datalakexx.dfs.core.windows.net/products.csv', format='csv'
-    ## If header exists uncomment line below
-    , header=True
-    )
-    display(df.limit(10))
+   %%pyspark
+   df = spark.read.load('abfss://fsxx@datalakexx.dfs.core.windows.net/products.csv', format='csv'
+   ## If header exists uncomment line below
+   , header=True
+   )
+   display(df.limit(10))
     ```
 
 10. セルを再実行し、結果が次のようになっていることを確認します。
@@ -265,7 +265,7 @@ SQL は構造化データセットでクエリを実行するための共通言�
     | -- | -- | -- | -- |
     | 771 | Mountain-100 Silver, 38 | マウンテン バイク | 3399.9900 |
     | 772 | Mountain-100 Silver, 42 | マウンテン バイク | 3399.9900 |
-    |     |     |     |     |
+    | ... | ... | ... | ... |
 
     Spark プールは既に開始されているので、セルの再実行にかかる時間は短くなります。
 
@@ -283,7 +283,7 @@ SQL は構造化データセットでクエリを実行するための共通言�
     | -- | -- |
     | ヘッドセット | 3 |
     | ホイール | 14 |
-    |     |     |
+    | ... | ... |
 
 14. セルの結果出力で、**[グラフ]** ビューを選択します。 結果のグラフは次のようになります。
 
