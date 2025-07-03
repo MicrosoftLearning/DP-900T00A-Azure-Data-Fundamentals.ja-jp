@@ -17,9 +17,10 @@ lab:
 
 Cosmos DB を使うには、Azure サブスクリプションで Cosmos DB アカウントをプロビジョニングする必要があります。 この演習では、Azure Cosmos DB for NoSQL を使う Cosmos DB のアカウントをプロビジョニングします。
 
-1. Azure portal で、左上隅の **[+ リソースの作成]** を選び、*Azure Cosmos DB* を検索します。  結果で **[Azure Cosmos DB]** を選択し、 **[作成]** を選択します。
+1. Azure portal で、左上隅の **[+ リソースの作成]** を選択し、`Azure Cosmos DB` を検索します。  結果で **[Azure Cosmos DB]** を選択し、 **[作成]** を選択します。
 1. **Azure Cosmos DB for NoSQL** のタイルで、 **[作成]** を選びます。
 1. 次の詳細を入力して、**[確認および作成]** を選択します。
+    - **ワークロードの種類**: 学習
     - **サブスクリプション**: サンドボックスを使用している場合は、[コンシェルジェ サブスクリプション] を選択します。** それ以外の場合は、ご自分の Azure サブスクリプションを選択します。
     - **リソース グループ**: サンドボックスを使用している場合は、既存のリソース グループを選択します (この名前は、*learn-xxxx...* のようになります)。それ以外の場合は、任意の名前で新しいリソース グループを作成します。
     - **アカウント名**: 一意の名前を入力します。
@@ -47,14 +48,14 @@ Cosmos DB を使うには、Azure サブスクリプションで Cosmos DB ア�
 1. 新しい項目の JSON を以下のように変更し、**[保存]** を選びます。
 
     ```json
-    {
-        "name": "Road Helmet,45",
-        "id": "123456789",
-        "categoryID": "123456789",
-        "SKU": "AB-1234-56",
-        "description": "The product called \"Road Helmet,45\" ",
-        "price": 48.74
-    }
+   {
+       "name": "Road Helmet,45",
+       "id": "123456789",
+       "categoryID": "123456789",
+       "SKU": "AB-1234-56",
+       "description": "The product called \"Road Helmet,45\" ",
+       "price": 48.74
+   }
     ```
 
 1. 新しい項目を保存すると、追加のメタデータ プロパティが自動的に追加されることに注意してください。
@@ -67,9 +68,9 @@ Cosmos DB を使うには、Azure サブスクリプションで Cosmos DB ア�
 1. 次のように、クエリを変更します。
 
     ```sql
-    SELECT *
-    FROM c
-    WHERE CONTAINS(c.name,"Helmet")
+   SELECT *
+   FROM c
+   WHERE CONTAINS(c.name,"Helmet")
     ```
 
 1. **[クエリの実行]** ボタンを使って、修正したクエリを実行し、結果を確認します。これには、**name** フィールドに "Helmet" というテキストが含まれる項目の JSON エンティティが含まれます。
