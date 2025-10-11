@@ -138,7 +138,7 @@ Azure Synapse Analytics を使用して実行できる主なタスクの 1 つ�
 
     | C1 | c2 | c3 | c4 |
     | -- | -- | -- | -- |
-    | ProductID | ProductName | カテゴリ | ListPrice |
+    | ProductID | 製品名 | カテゴリ | ListPrice |
     | 771 | Mountain-100 Silver, 38 | マウンテン バイク | 3399.9900 |
     | 772 | Mountain-100 Silver, 42 | マウンテン バイク | 3399.9900 |
     | ... | ... | ... | ... |
@@ -159,7 +159,7 @@ Azure Synapse Analytics を使用して実行できる主なタスクの 1 つ�
 
     結果は次のようになります。
 
-    | ProductID | ProductName | カテゴリ | ListPrice |
+    | ProductID | 製品名 | カテゴリ | ListPrice |
     | -- | -- | -- | -- |
     | 771 | Mountain-100 Silver, 38 | マウンテン バイク | 3399.9900 |
     | 772 | Mountain-100 Silver, 42 | マウンテン バイク | 3399.9900 |
@@ -185,7 +185,7 @@ Azure Synapse Analytics を使用して実行できる主なタスクの 1 つ�
     | カテゴリ | ProductCount |
     | -- | -- |
     | Bib-Shorts | 3 |
-    | バイク ラック | 1 |
+    | Bike Racks | 1 |
     | ... | ... |
 
 8. **[SQL スクリプト 1]** の **[プロパティ]** ペインで、**[名前]** を `Count Products by Category` に変更します。 次に、ツールバーの **[公開]** を選択して、スクリプトを保存します。
@@ -243,7 +243,7 @@ SQL は構造化データセットでクエリを実行するための共通言�
 
     | _c0_ | _c1_ | _c2_ | _c3_ |
     | -- | -- | -- | -- |
-    | ProductID | ProductName | カテゴリ | ListPrice |
+    | ProductID | 製品名 | カテゴリ | ListPrice |
     | 771 | Mountain-100 Silver, 38 | マウンテン バイク | 3399.9900 |
     | 772 | Mountain-100 Silver, 42 | マウンテン バイク | 3399.9900 |
     | ... | ... | ... | ... |
@@ -261,7 +261,7 @@ SQL は構造化データセットでクエリを実行するための共通言�
 
 10. セルを再実行し、結果が次のようになっていることを確認します。
 
-    | ProductID | ProductName | カテゴリ | ListPrice |
+    | ProductID | 製品名 | カテゴリ | ListPrice |
     | -- | -- | -- | -- |
     | 771 | Mountain-100 Silver, 38 | マウンテン バイク | 3399.9900 |
     | 772 | Mountain-100 Silver, 42 | マウンテン バイク | 3399.9900 |
