@@ -20,6 +20,8 @@ lab:
 
     ![マーケットプレースに Azure SQL が表示されている Azure Portal のスクリーンショット](images/azure-sql-marketplace.png)
 
+1. **[比較のオプション]** を選択します。
+ 
 1. 使用可能な Azure SQL のオプションを確認し、**[SQL データベース]** タイルで **[単一データベース]** が選択されていることを確認して、**[作成]** を選択します。
 
     ![[Azure SQL] ページが表示された Azure portal のスクリーンショット。](images/azure-sql-portal.png)
