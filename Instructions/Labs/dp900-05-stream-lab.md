@@ -2,13 +2,20 @@
 lab:
   title: Azure Stream Analytics を調べる
   module: Explore fundamentals of real-time analytics
+  description: この演習では、Azure サブスクリプションに Azure Stream Analytics ジョブをプロビジョニングし、それを使用してリアルタイム データのストリームを処理します。
+  duration: 20 minutes
+  level: 300
+  islab: true
+  primarytopics:
+    - Azure
+    - Azure Stream Analytics
 ---
 
 # Azure Stream Analytics を調べる
 
 この演習では、Azure サブスクリプションに Azure Stream Analytics ジョブをプロビジョニングし、それを使用してリアルタイム データのストリームを処理します。
 
-このラボは完了するまで、約 **15** 分かかります。
+このラボは完了するまで、約 **20** 分かかります。
 
 ## 開始する前に
 

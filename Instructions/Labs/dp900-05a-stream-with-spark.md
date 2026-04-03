@@ -2,13 +2,20 @@
 lab:
   title: Azure Synapse Analytics で Spark ストリーミングを探索する
   module: Explore fundamentals of real-time analytics
+  description: この演習では、Spark Structured Streaming と "デルタ テーブル" を Azure Synapse Analytics で使用して、ストリーミング データを処理します。
+  duration: 30 minutes
+  level: 200
+  islab: true
+  primarytopics:
+    - Azure
+    - Azure Synapse Analytics
 ---
 
 # Azure Synapse Analytics で Spark ストリーミングを探索する
 
 この演習では、*Spark Structured Streaming* と "デルタ テーブル" を Azure Synapse Analytics で使用して、ストリーミング データを処理します。**
 
-このラボは完了するまで、約 **15** 分かかります。
+このラボは完了するまで、約 **30** 分かかります。
 
 ## 開始する前に
 

@@ -2,13 +2,21 @@
 lab:
   title: Azure Database for PostgreSQL について調べる
   module: Explore relational data in Azure
+  description: この演習では、Azure Database for PostgreSQL リソースをプロビジョニングします。
+  duration: 10 minutes
+  level: 300
+  islab: true
+  primarytopics:
+    - Azure Database for PostgreSQL
+    - Azure Portal
+    - Azure
 ---
 
 # Azure Database for PostgreSQL について調べる
 
 この演習では、Azure サブスクリプションで Azure Database for PostgreSQL リソースをプロビジョニングします。
 
-このラボは完了するまで、約 **5** 分かかります。
+このラボは完了するまで約 **10** 分かかります。
 
 ## 開始する前に
 
