@@ -2,12 +2,21 @@
 lab:
   title: Azure Cosmos DB を調べる
   module: Explore fundamentals of Azure Cosmos DB
+  description: このラボでは、Azure Cosmos DB アカウントをプロビジョニングし、データベースとコンテナーを作成し、Azure portal のデータ エクスプローラーを使って JSON 項目の追加とクエリを行います。 NoSQL データ ストレージについて実践的に経験し、Cosmos DB の SQL に似たクエリ言語を使ってデータを取得する方法を学びます。
+  duration: 30 minutes
+  level: 300
+  islab: true
+  primarytopics:
+    - Azure
+    - Azure Cosmos DB
+    - Azure Portal
 ---
+
 # Azure Cosmos DB を調べる
 
 このラボを完了すると、Azure Cosmos DB アカウントをプロビジョニングし、サンプル データベースとコンテナーを作成し、JSON 項目を追加して表示し、SQL に似たクエリを実行してデータを取得する方法を習得できます。 Azure portal の実践的な経験を積み、Cosmos DB が柔軟な非リレーショナル データ ストレージとクエリをどのようにサポートするかを理解できます。
 
-このラボは完了するまで、約 **15** 分かかります。
+このラボは完了するまで、約 **30** 分かかります。
 
 ## 開始する前に
 
