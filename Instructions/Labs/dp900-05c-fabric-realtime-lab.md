@@ -2,6 +2,12 @@
 lab:
   title: Microsoft Fabric のリアルタイム分析を探索する
   module: Explore real-time analytics in Microsoft Fabric
+  description: このラボでは、Microsoft Fabric のリアルタイム インテリジェンス機能を使って、タクシー会社からのライブ データ ストリームの取り込み、クエリ、視覚化を行います。 Eventstream、イベントハウス KQL クエリ、リアルタイム ダッシュボードを実践的に経験して、Fabric がストリーミング分析をエンド ツー エンドでどのように処理するかを理解します。
+  duration: 30 minutes
+  level: 300
+  islab: true
+  primarytopics:
+    - Microsoft Fabric
 ---
 
 # Microsoft Fabric のリアルタイム分析を探索する

@@ -2,6 +2,13 @@
 lab:
   title: Azure Synapse Analytics を使用して Azure のデータ分析を調べる
   module: Explore fundamentals of large-scale data warehousing
+  description: この演習では、自分の Azure サブスクリプションで Azure Synapse Analytics ワークスペースをプロビジョニングし、それを使用してデータの取り込みとクエリを実行します。
+  duration: 30 minutes
+  level: 300
+  islab: true
+  primarytopics:
+    - Azure
+    - Azure Synapse Analytics
 ---
 
 # Azure Synapse Analytics を使用して Azure のデータ分析を調べる

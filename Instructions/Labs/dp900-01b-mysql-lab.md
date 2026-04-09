@@ -2,13 +2,21 @@
 lab:
   title: Azure Database for MySQL について調べる
   module: Explore relational data in Azure
+  description: この演習では、Azure Database for MySQL リソースをプロビジョニングします。
+  duration: 20 minutes
+  level: 300
+  islab: true
+  primarytopics:
+    - Azure Database for MySQL
+    - Azure Portal
+    - Azure
 ---
 
 # Azure Database for MySQL について調べる
 
 この演習では、Azure サブスクリプションで Azure Database for MySQL リソースをプロビジョニングします。
 
-このラボは完了するまで、約 **5** 分かかります。
+このラボは完了するまで、約 **20** 分かかります。
 
 ## 開始する前に
 

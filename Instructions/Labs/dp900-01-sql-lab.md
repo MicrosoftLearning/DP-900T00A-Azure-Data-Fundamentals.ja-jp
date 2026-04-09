@@ -2,6 +2,14 @@
 lab:
   title: Azure SQL Database について調べる
   module: Explore relational data in Azure
+  description: このラボでは、Azure SQL データベースをプロビジョニングし、SQL クエリを使用してデータベースを操作する方法について説明します。 テーブルとデータが事前に設定された Microsoft AdventureWorks サンプル データベースを使用するので、独自のスキーマを作成したりサンプル レコードを挿入したりすることなく、リレーショナル データの探索とクエリに集中できます。 このアプローチにより、作業をシンプルに保ち、データベースの基本概念と SQL 構文の理解に集中できます。
+  duration: 15 minutes
+  level: 300
+  islab: true
+  primarytopics:
+    - Azure SQL Database
+    - Azure
+    - Azure Portal
 ---
 
 # Azure SQL Database について調べる

@@ -2,6 +2,13 @@
 lab:
   title: Azure Synapse Data Explorer について調べる
   module: Explore fundamentals of real-time analytics
+  description: この演習では、Azure Synapse Data Explorer を使用して時系列データを分析します。
+  duration: 30 minutes
+  level: 300
+  islab: true
+  primarytopics:
+    - Azure Synapse Analytics
+    - Azure Portal
 ---
 
 # Azure Synapse Data Explorer について調べる
@@ -10,7 +17,7 @@ lab:
 
 この演習では、Azure Synapse Data Explorer を使用して時系列データを分析します。
 
-このラボは完了するまで、約 **25** 分かかります。
+このラボは完了するまで、約 **30** 分かかります。
 
 ## 開始する前に
 

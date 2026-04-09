@@ -2,6 +2,12 @@
 lab:
   title: Microsoft Fabric のデータ分析を探索する
   module: Explore fundamentals of large-scale data analytics
+  description: このラボでは、Microsoft Fabric レイクハウスを作成し、パイプラインを使って実際の NYC タクシー データを取り込み、SQL でそのクエリを実行します。 Fabric によってデータ インジェストと分析が単一のスケーラブルなプラットフォームにどのように統合されるかがわかります。
+  duration: 30 minutes
+  level: 300
+  islab: true
+  primarytopics:
+    - Microsoft Fabric
 ---
 
 # Microsoft Fabric のデータ分析を探索する
@@ -19,7 +25,7 @@ lab:
 
 "NYC Taxi - Green" データセットには、乗車および降車時刻、場所、乗車距離、運賃、乗客数など、ニューヨーク市のタクシー乗車の詳細な記録が含まれています。 都市のモビリティ、需要予測、異常検出を探索するために、Data Analytics と機械学習で広く使用されています。 このラボでは、この実際のデータセットを使用して、Microsoft Fabric でのデータ インジェストと分析を実践します。
 
-このラボは完了するまで、約 **25** 分かかります。
+このラボは完了するまで、約 **30** 分かかります。
 
 > **注**: この演習を完了するには、Microsoft Fabric ライセンスが必要です。 無料の Fabric 試用版ライセンスを有効にする方法の詳細については、[Fabric の概要](https://learn.microsoft.com/fabric/get-started/fabric-trial)に関するページを参照してください。 これを行うには、Microsoft の "学校" または "職場" アカウントが必要です。** ** お持ちでない場合は、[Microsoft Office 365 E3 以降の試用版にサインアップ](https://www.microsoft.com/microsoft-365/business/compare-more-office-365-for-business-plans)できます。
 
